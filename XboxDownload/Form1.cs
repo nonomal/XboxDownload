@@ -742,7 +742,7 @@ namespace XboxDownload
             }
             catch (Exception e)
             {
-                if (add) MessageBox.Show(ckbMicrosoftStore.Text + "失败，错误信息：" + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (add) MessageBox.Show("修改系统Hosts文件失败，错误信息：" + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
