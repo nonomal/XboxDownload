@@ -191,7 +191,7 @@ namespace XboxDownload
             toolTip1.SetToolTip(this.labelApp, "包括以下应用下载域名\ndl.delivery.mp.microsoft.com\ntlu.dl.delivery.mp.microsoft.com");
             toolTip1.SetToolTip(this.labelPS, "包括以下游戏下载域名\ngst.prod.dl.playstation.net\ngs2.ww.prod.dl.playstation.net\nzeus.dl.playstation.net\nares.dl.playstation.net");
             toolTip1.SetToolTip(this.labelEA, "包括以下游戏下载域名\norigin-a.akamaihd.net");
-            toolTip1.SetToolTip(this.labelBattle, "包括以下游戏下载域名\nblzddist1-a.akamaihd.net\nblzddist2-a.akamaihd.net\nblzddist3-a.akamaihd.net"); 
+            toolTip1.SetToolTip(this.labelBattle, "包括以下游戏下载域名\nblzddist1-a.akamaihd.net"); 
 
             if (DateTime.Compare(DateTime.Now, new DateTime(Properties.Settings.Default.NextUpdate)) >= 0)
             {
@@ -720,8 +720,6 @@ namespace XboxDownload
                         if (!string.IsNullOrEmpty(Properties.Settings.Default.BattleIP))
                         {
                             sb.AppendLine(Properties.Settings.Default.BattleIP + " blzddist1-a.akamaihd.net");
-                            sb.AppendLine(Properties.Settings.Default.BattleIP + " blzddist2-a.akamaihd.net");
-                            sb.AppendLine(Properties.Settings.Default.BattleIP + " blzddist3-a.akamaihd.net");
                         }
                     }
                     foreach (var host in dicHost)
