@@ -2888,7 +2888,9 @@ namespace XboxDownload
 
         private void LinkGameWebsite_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start(e.Link.LinkData.ToString());
+            string url = e.Link.LinkData.ToString();
+            url = url.Replace("/ar-AE/", "/en-AE/");
+            Process.Start(url);
         }
 
         private void LinkCompare_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
