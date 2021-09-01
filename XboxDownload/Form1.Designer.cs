@@ -2163,6 +2163,7 @@ namespace XboxDownload
             // 
             // flpGameWithGold
             // 
+            this.flpGameWithGold.AutoScroll = true;
             this.flpGameWithGold.Location = new System.Drawing.Point(137, 94);
             this.flpGameWithGold.Name = "flpGameWithGold";
             this.flpGameWithGold.Size = new System.Drawing.Size(1274, 40);
