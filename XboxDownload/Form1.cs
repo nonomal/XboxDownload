@@ -2164,7 +2164,8 @@ namespace XboxDownload
             }
             else
             {
-                Match result = Regex.Match(url, @"/(?<productId>[a-zA-Z0-9]{12})$|/(?<productId>[a-zA-Z0-9]{12})(\?|#)|^(?<productId>[a-zA-Z0-9]{12})$");
+                //Match result = Regex.Match(url, @"/(?<productId>[a-zA-Z0-9]{12})$|/(?<productId>[a-zA-Z0-9]{12})(\?|#)|^(?<productId>[a-zA-Z0-9]{12})$");
+                Match result = Regex.Match(url, @"/(?<productId>[a-zA-Z0-9]{12})$|/(?<productId>[a-zA-Z0-9]{12})(\?|#)|/(?<productId>[a-zA-Z0-9]{12})/0001|^(?<productId>[a-zA-Z0-9]{12})$");
                 if (result.Success)
                 {
                     pbGame.Image = pbGame.InitialImage;
@@ -3071,7 +3072,7 @@ namespace XboxDownload
                     {
                         using (File.Create(driverName + (unlock ? "$ConsoleGen8" : "$ConsoleGen8Lock"))) { }
                     }
-                    if (rbXboxSeries.Checked)
+                    else if (rbXboxSeries.Checked)
                     {
                         using (File.Create(driverName + (unlock ? "$ConsoleGen9" : "$ConsoleGen9Lock"))) { }
                     }
@@ -3091,7 +3092,7 @@ namespace XboxDownload
         private void LinkAppxRefreshDrive_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             cbAppxDrive.Items.Clear();
-            DriveInfo[] driverList = Array.FindAll(DriveInfo.GetDrives(), a => a.DriveType != DriveType.Removable);
+            DriveInfo[] driverList = Array.FindAll(DriveInfo.GetDrives(), a => a.DriveType == DriveType.Fixed);
             if (driverList.Length >= 1)
             {
                 cbAppxDrive.Items.AddRange(driverList);

@@ -397,7 +397,7 @@ namespace XboxDownload
             this.tabControl1.Location = new System.Drawing.Point(0, 33);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1478, 891);
+            this.tabControl1.Size = new System.Drawing.Size(1478, 847);
             this.tabControl1.TabIndex = 1;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.TabControl1_SelectedIndexChanged);
             // 
@@ -409,7 +409,7 @@ namespace XboxDownload
             this.tabPage1.Location = new System.Drawing.Point(4, 28);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1470, 859);
+            this.tabPage1.Size = new System.Drawing.Size(1470, 815);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "服务";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -420,7 +420,7 @@ namespace XboxDownload
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(3, 360);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1464, 456);
+            this.groupBox2.Size = new System.Drawing.Size(1464, 412);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "日志";
@@ -440,7 +440,7 @@ namespace XboxDownload
             this.lvLog.Margin = new System.Windows.Forms.Padding(4);
             this.lvLog.MultiSelect = false;
             this.lvLog.Name = "lvLog";
-            this.lvLog.Size = new System.Drawing.Size(1458, 429);
+            this.lvLog.Size = new System.Drawing.Size(1458, 385);
             this.lvLog.TabIndex = 4;
             this.lvLog.UseCompatibleStateImageBehavior = false;
             this.lvLog.View = System.Windows.Forms.View.Details;
@@ -475,7 +475,7 @@ namespace XboxDownload
             this.panel1.Controls.Add(this.cbLocalIP);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(3, 816);
+            this.panel1.Location = new System.Drawing.Point(3, 772);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1464, 40);
@@ -534,7 +534,7 @@ namespace XboxDownload
             this.ckbRecordLog.AutoSize = true;
             this.ckbRecordLog.Checked = true;
             this.ckbRecordLog.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ckbRecordLog.Location = new System.Drawing.Point(1268, 10);
+            this.ckbRecordLog.Location = new System.Drawing.Point(1267, 10);
             this.ckbRecordLog.Name = "ckbRecordLog";
             this.ckbRecordLog.Size = new System.Drawing.Size(106, 22);
             this.ckbRecordLog.TabIndex = 4;
@@ -638,7 +638,7 @@ namespace XboxDownload
             // label54
             // 
             this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(514, 223);
+            this.label54.Location = new System.Drawing.Point(514, 224);
             this.label54.Name = "label54";
             this.label54.Size = new System.Drawing.Size(278, 18);
             this.label54.TabIndex = 122;
@@ -654,7 +654,7 @@ namespace XboxDownload
             // labelBattle
             // 
             this.labelBattle.AutoSize = true;
-            this.labelBattle.Location = new System.Drawing.Point(116, 223);
+            this.labelBattle.Location = new System.Drawing.Point(116, 224);
             this.labelBattle.Name = "labelBattle";
             this.labelBattle.Size = new System.Drawing.Size(188, 18);
             this.labelBattle.TabIndex = 121;
@@ -688,7 +688,7 @@ namespace XboxDownload
             // ckbEACDN
             // 
             this.ckbEACDN.AutoSize = true;
-            this.ckbEACDN.Location = new System.Drawing.Point(807, 191);
+            this.ckbEACDN.Location = new System.Drawing.Point(807, 190);
             this.ckbEACDN.Name = "ckbEACDN";
             this.ckbEACDN.Size = new System.Drawing.Size(160, 22);
             this.ckbEACDN.TabIndex = 8;
@@ -698,7 +698,7 @@ namespace XboxDownload
             // ckbEAProtocol
             // 
             this.ckbEAProtocol.AutoSize = true;
-            this.ckbEAProtocol.Location = new System.Drawing.Point(973, 191);
+            this.ckbEAProtocol.Location = new System.Drawing.Point(974, 190);
             this.ckbEAProtocol.Name = "ckbEAProtocol";
             this.ckbEAProtocol.Size = new System.Drawing.Size(178, 22);
             this.ckbEAProtocol.TabIndex = 9;
@@ -765,7 +765,7 @@ namespace XboxDownload
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(1237, 22);
+            this.label35.Location = new System.Drawing.Point(1238, 22);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(62, 18);
             this.label35.TabIndex = 109;
@@ -827,7 +827,7 @@ namespace XboxDownload
             // ckbTruncation
             // 
             this.ckbTruncation.AutoSize = true;
-            this.ckbTruncation.Location = new System.Drawing.Point(119, 292);
+            this.ckbTruncation.Location = new System.Drawing.Point(118, 292);
             this.ckbTruncation.Name = "ckbTruncation";
             this.ckbTruncation.Size = new System.Drawing.Size(997, 22);
             this.ckbTruncation.TabIndex = 15;
@@ -837,7 +837,7 @@ namespace XboxDownload
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(9, 325);
+            this.label20.Location = new System.Drawing.Point(9, 326);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(1304, 18);
             this.label20.TabIndex = 101;
@@ -867,7 +867,7 @@ namespace XboxDownload
             // ckbLocalUpload
             // 
             this.ckbLocalUpload.AutoSize = true;
-            this.ckbLocalUpload.Location = new System.Drawing.Point(119, 259);
+            this.ckbLocalUpload.Location = new System.Drawing.Point(118, 260);
             this.ckbLocalUpload.Name = "ckbLocalUpload";
             this.ckbLocalUpload.Size = new System.Drawing.Size(142, 22);
             this.ckbLocalUpload.TabIndex = 12;
@@ -897,7 +897,7 @@ namespace XboxDownload
             // ckbRedirect
             // 
             this.ckbRedirect.AutoSize = true;
-            this.ckbRedirect.Location = new System.Drawing.Point(973, 55);
+            this.ckbRedirect.Location = new System.Drawing.Point(974, 56);
             this.ckbRedirect.Name = "ckbRedirect";
             this.ckbRedirect.Size = new System.Drawing.Size(124, 22);
             this.ckbRedirect.TabIndex = 3;
@@ -986,7 +986,7 @@ namespace XboxDownload
             this.tabPage2.Location = new System.Drawing.Point(4, 28);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1470, 859);
+            this.tabPage2.Size = new System.Drawing.Size(1470, 815);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "测速";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -997,7 +997,7 @@ namespace XboxDownload
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Location = new System.Drawing.Point(3, 3);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(1464, 721);
+            this.groupBox4.Size = new System.Drawing.Size(1464, 677);
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "IP 列表";
@@ -1019,7 +1019,7 @@ namespace XboxDownload
             this.dgvIpList.MultiSelect = false;
             this.dgvIpList.Name = "dgvIpList";
             this.dgvIpList.RowHeadersWidth = 35;
-            this.dgvIpList.Size = new System.Drawing.Size(1458, 694);
+            this.dgvIpList.Size = new System.Drawing.Size(1458, 650);
             this.dgvIpList.TabIndex = 1;
             this.dgvIpList.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvIpList_CellMouseDoubleClick);
             this.dgvIpList.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvIpList_CellMouseDown);
@@ -1103,7 +1103,7 @@ namespace XboxDownload
             this.panel2.Controls.Add(this.ckbChinaTelecom);
             this.panel2.Controls.Add(this.linkImportIPManual);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(3, 724);
+            this.panel2.Location = new System.Drawing.Point(3, 680);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1464, 132);
             this.panel2.TabIndex = 2;
@@ -1134,13 +1134,13 @@ namespace XboxDownload
             // 
             this.flpTestUrl.Location = new System.Drawing.Point(126, 48);
             this.flpTestUrl.Name = "flpTestUrl";
-            this.flpTestUrl.Size = new System.Drawing.Size(613, 20);
+            this.flpTestUrl.Size = new System.Drawing.Size(614, 20);
             this.flpTestUrl.TabIndex = 101;
             // 
             // linkHostsClear
             // 
             this.linkHostsClear.AutoSize = true;
-            this.linkHostsClear.Location = new System.Drawing.Point(745, 48);
+            this.linkHostsClear.Location = new System.Drawing.Point(746, 48);
             this.linkHostsClear.Name = "linkHostsClear";
             this.linkHostsClear.Size = new System.Drawing.Size(161, 18);
             this.linkHostsClear.TabIndex = 14;
@@ -1221,7 +1221,7 @@ namespace XboxDownload
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(1079, 48);
+            this.label5.Location = new System.Drawing.Point(1078, 48);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(341, 18);
             this.label5.TabIndex = 15;
@@ -1341,7 +1341,7 @@ namespace XboxDownload
             this.tabPage3.Location = new System.Drawing.Point(4, 28);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1470, 859);
+            this.tabPage3.Size = new System.Drawing.Size(1470, 815);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "域名";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -1352,7 +1352,7 @@ namespace XboxDownload
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Location = new System.Drawing.Point(3, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1464, 802);
+            this.groupBox3.Size = new System.Drawing.Size(1464, 758);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "自定义挟持域名(修改后按保存生效，删除单条记录点击左边序号然后按delete键)";
@@ -1370,7 +1370,7 @@ namespace XboxDownload
             this.dgvHosts.MultiSelect = false;
             this.dgvHosts.Name = "dgvHosts";
             this.dgvHosts.RowHeadersWidth = 35;
-            this.dgvHosts.Size = new System.Drawing.Size(1458, 775);
+            this.dgvHosts.Size = new System.Drawing.Size(1458, 731);
             this.dgvHosts.TabIndex = 1;
             this.dgvHosts.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvHosts_CellValueChanged);
             this.dgvHosts.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.DgvHosts_DefaultValuesNeeded);
@@ -1421,7 +1421,7 @@ namespace XboxDownload
             this.panel3.Controls.Add(this.butHostReset);
             this.panel3.Controls.Add(this.butHostSave);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(3, 805);
+            this.panel3.Location = new System.Drawing.Point(3, 761);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1464, 51);
             this.panel3.TabIndex = 2;
@@ -1429,7 +1429,7 @@ namespace XboxDownload
             // linkXbox360HostName
             // 
             this.linkXbox360HostName.AutoSize = true;
-            this.linkXbox360HostName.Location = new System.Drawing.Point(5, 16);
+            this.linkXbox360HostName.Location = new System.Drawing.Point(4, 16);
             this.linkXbox360HostName.Name = "linkXbox360HostName";
             this.linkXbox360HostName.Size = new System.Drawing.Size(179, 18);
             this.linkXbox360HostName.TabIndex = 2;
@@ -1479,7 +1479,7 @@ namespace XboxDownload
             this.tabPage4.Location = new System.Drawing.Point(4, 28);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1470, 859);
+            this.tabPage4.Size = new System.Drawing.Size(1470, 815);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "硬盘";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -1510,7 +1510,7 @@ namespace XboxDownload
             this.groupBox6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox6.Location = new System.Drawing.Point(3, 373);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(1464, 483);
+            this.groupBox6.Size = new System.Drawing.Size(1464, 439);
             this.groupBox6.TabIndex = 2;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "文件信息";
@@ -1848,7 +1848,7 @@ namespace XboxDownload
             this.tabPage5.Location = new System.Drawing.Point(4, 28);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1470, 859);
+            this.tabPage5.Size = new System.Drawing.Size(1470, 815);
             this.tabPage5.TabIndex = 8;
             this.tabPage5.Text = "游戏";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -1875,7 +1875,7 @@ namespace XboxDownload
             this.gbGameInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbGameInfo.Location = new System.Drawing.Point(3, 147);
             this.gbGameInfo.Name = "gbGameInfo";
-            this.gbGameInfo.Size = new System.Drawing.Size(1464, 709);
+            this.gbGameInfo.Size = new System.Drawing.Size(1464, 665);
             this.gbGameInfo.TabIndex = 1;
             this.gbGameInfo.TabStop = false;
             this.gbGameInfo.Text = "信息";
@@ -1893,7 +1893,7 @@ namespace XboxDownload
             this.lvGame.HideSelection = false;
             this.lvGame.Location = new System.Drawing.Point(3, 374);
             this.lvGame.Name = "lvGame";
-            this.lvGame.Size = new System.Drawing.Size(1458, 332);
+            this.lvGame.Size = new System.Drawing.Size(1458, 288);
             this.lvGame.TabIndex = 2;
             this.lvGame.UseCompatibleStateImageBehavior = false;
             this.lvGame.View = System.Windows.Forms.View.Details;
@@ -1989,7 +1989,7 @@ namespace XboxDownload
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(1201, 54);
+            this.label29.Location = new System.Drawing.Point(1202, 54);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(80, 18);
             this.label29.TabIndex = 22;
@@ -2001,7 +2001,7 @@ namespace XboxDownload
             this.tbGameDeveloperName.Location = new System.Drawing.Point(366, 50);
             this.tbGameDeveloperName.Name = "tbGameDeveloperName";
             this.tbGameDeveloperName.ReadOnly = true;
-            this.tbGameDeveloperName.Size = new System.Drawing.Size(429, 28);
+            this.tbGameDeveloperName.Size = new System.Drawing.Size(428, 28);
             this.tbGameDeveloperName.TabIndex = 3;
             // 
             // label28
@@ -2119,7 +2119,7 @@ namespace XboxDownload
             this.tbGameDescription.Name = "tbGameDescription";
             this.tbGameDescription.ReadOnly = true;
             this.tbGameDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbGameDescription.Size = new System.Drawing.Size(1042, 155);
+            this.tbGameDescription.Size = new System.Drawing.Size(1042, 156);
             this.tbGameDescription.TabIndex = 6;
             // 
             // tbGameTitle
@@ -2164,7 +2164,7 @@ namespace XboxDownload
             // flpGameWithGold
             // 
             this.flpGameWithGold.AutoScroll = true;
-            this.flpGameWithGold.Location = new System.Drawing.Point(137, 94);
+            this.flpGameWithGold.Location = new System.Drawing.Point(136, 94);
             this.flpGameWithGold.Name = "flpGameWithGold";
             this.flpGameWithGold.Size = new System.Drawing.Size(1274, 40);
             this.flpGameWithGold.TabIndex = 10;
@@ -2193,7 +2193,7 @@ namespace XboxDownload
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(50, 67);
+            this.label25.Location = new System.Drawing.Point(50, 68);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(80, 18);
             this.label25.TabIndex = 8;
@@ -2273,7 +2273,7 @@ namespace XboxDownload
             this.tabPage7.Controls.Add(this.gbDrive);
             this.tabPage7.Location = new System.Drawing.Point(4, 28);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(1470, 859);
+            this.tabPage7.Size = new System.Drawing.Size(1470, 815);
             this.tabPage7.TabIndex = 7;
             this.tabPage7.Text = "工具";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -2288,7 +2288,7 @@ namespace XboxDownload
             this.gpEACdn.Controls.Add(this.rbEACdn2);
             this.gpEACdn.Controls.Add(this.rbEACdn1);
             this.gpEACdn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gpEACdn.Location = new System.Drawing.Point(0, 268);
+            this.gpEACdn.Location = new System.Drawing.Point(0, 269);
             this.gpEACdn.Name = "gpEACdn";
             this.gpEACdn.Size = new System.Drawing.Size(1470, 136);
             this.gpEACdn.TabIndex = 2;
@@ -2339,7 +2339,7 @@ namespace XboxDownload
             // rbEACdn3
             // 
             this.rbEACdn3.AutoSize = true;
-            this.rbEACdn3.Location = new System.Drawing.Point(253, 37);
+            this.rbEACdn3.Location = new System.Drawing.Point(254, 38);
             this.rbEACdn3.Name = "rbEACdn3";
             this.rbEACdn3.Size = new System.Drawing.Size(69, 22);
             this.rbEACdn3.TabIndex = 2;
@@ -2350,7 +2350,7 @@ namespace XboxDownload
             // rbEACdn2
             // 
             this.rbEACdn2.AutoSize = true;
-            this.rbEACdn2.Location = new System.Drawing.Point(160, 37);
+            this.rbEACdn2.Location = new System.Drawing.Point(160, 38);
             this.rbEACdn2.Name = "rbEACdn2";
             this.rbEACdn2.Size = new System.Drawing.Size(87, 22);
             this.rbEACdn2.TabIndex = 1;
@@ -2362,7 +2362,7 @@ namespace XboxDownload
             // 
             this.rbEACdn1.AutoSize = true;
             this.rbEACdn1.Checked = true;
-            this.rbEACdn1.Location = new System.Drawing.Point(13, 37);
+            this.rbEACdn1.Location = new System.Drawing.Point(14, 38);
             this.rbEACdn1.Name = "rbEACdn1";
             this.rbEACdn1.Size = new System.Drawing.Size(141, 22);
             this.rbEACdn1.TabIndex = 0;
@@ -2384,7 +2384,7 @@ namespace XboxDownload
             this.groupBox8.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox8.Location = new System.Drawing.Point(0, 159);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(1470, 109);
+            this.groupBox8.Size = new System.Drawing.Size(1470, 110);
             this.groupBox8.TabIndex = 1;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "离线安装微软商店应用软件";
@@ -2392,7 +2392,7 @@ namespace XboxDownload
             // linkAppxRefreshDrive
             // 
             this.linkAppxRefreshDrive.AutoSize = true;
-            this.linkAppxRefreshDrive.Location = new System.Drawing.Point(221, 68);
+            this.linkAppxRefreshDrive.Location = new System.Drawing.Point(220, 68);
             this.linkAppxRefreshDrive.Name = "linkAppxRefreshDrive";
             this.linkAppxRefreshDrive.Size = new System.Drawing.Size(44, 18);
             this.linkAppxRefreshDrive.TabIndex = 26;
@@ -2411,7 +2411,7 @@ namespace XboxDownload
             // 
             // butAppxInstall
             // 
-            this.butAppxInstall.Location = new System.Drawing.Point(569, 62);
+            this.butAppxInstall.Location = new System.Drawing.Point(568, 62);
             this.butAppxInstall.Name = "butAppxInstall";
             this.butAppxInstall.Size = new System.Drawing.Size(140, 30);
             this.butAppxInstall.TabIndex = 24;
@@ -2423,7 +2423,7 @@ namespace XboxDownload
             // 
             this.cbAppxDrive.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbAppxDrive.FormattingEnabled = true;
-            this.cbAppxDrive.Location = new System.Drawing.Point(94, 65);
+            this.cbAppxDrive.Location = new System.Drawing.Point(94, 64);
             this.cbAppxDrive.Name = "cbAppxDrive";
             this.cbAppxDrive.Size = new System.Drawing.Size(121, 26);
             this.cbAppxDrive.TabIndex = 23;
@@ -2439,7 +2439,7 @@ namespace XboxDownload
             // 
             // butAppxOpenFile
             // 
-            this.butAppxOpenFile.Location = new System.Drawing.Point(569, 27);
+            this.butAppxOpenFile.Location = new System.Drawing.Point(568, 27);
             this.butAppxOpenFile.Name = "butAppxOpenFile";
             this.butAppxOpenFile.Size = new System.Drawing.Size(140, 30);
             this.butAppxOpenFile.TabIndex = 21;
@@ -2512,10 +2512,10 @@ namespace XboxDownload
             this.label40.AutoSize = true;
             this.label40.Location = new System.Drawing.Point(765, 24);
             this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(647, 108);
+            this.label40.Size = new System.Drawing.Size(638, 126);
             this.label40.TabIndex = 12;
             this.label40.Text = "使用说明：\r\n1. Xbox 操作系统更新到最新版本\r\n2. 把制作好的出国/回国U盘插入Xbox后保持连线重启主机\r\n3. 在主机 设置-系统-语言和区域 中选" +
-    "择对应的国家或者地区后再次重启主机\r\n\r\n提示: 有隐藏启动分区的U盘可能不被Xbox识别，需要删除所有分区后重新分区。";
+    "择对应的国家或者地区后再次重启主机\r\n\r\n提示: 有隐藏启动分区的U盘可能不被Xbox识别，需要删除所有分区后重新分区;\r\n还有U盘卷标不能有中文.";
             // 
             // labelStatusDrive
             // 
@@ -2732,7 +2732,7 @@ namespace XboxDownload
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1478, 924);
+            this.ClientSize = new System.Drawing.Size(1478, 880);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.toolStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
