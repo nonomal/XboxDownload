@@ -159,7 +159,7 @@ namespace XboxDownload
             {
                 Task.Run(() =>
                 {
-                    string ip = ClassWeb.HostToIP("blzddist1-a.akamaihd.net", Properties.Settings.Default.DnsIP);
+                    string ip = ClassWeb.HostToIP("origin-a.akamaihd.net", Properties.Settings.Default.DnsIP);
                     if (!string.IsNullOrEmpty(ip))
                     {
                         if (Form1.bServiceFlag) parentForm.SetTextBox(parentForm.tbEAIP, ip);
@@ -178,7 +178,7 @@ namespace XboxDownload
             {
                 Task.Run(() =>
                 {
-                    string ip = ClassWeb.HostToIP("origin-a.akamaihd.net", Properties.Settings.Default.DnsIP);
+                    string ip = ClassWeb.HostToIP("blzddist1-a.akamaihd.net", Properties.Settings.Default.DnsIP);
                     if (!string.IsNullOrEmpty(ip))
                     {
                         if (Form1.bServiceFlag) parentForm.SetTextBox(parentForm.tbBattleIP, ip);
