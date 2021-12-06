@@ -38,6 +38,22 @@ namespace XboxDownload
         public Form1()
         {
             InitializeComponent();
+            if (File.Exists(Application.StartupPath + "\\Domain"))
+            {
+                File.Delete(Application.StartupPath + "\\Domain");
+            }
+            if (File.Exists(Application.StartupPath + "\\IP列表(assets1.xboxlive.cn).txt"))
+            {
+                File.Delete(Application.StartupPath + "\\IP列表(assets1.xboxlive.cn).txt");
+            }
+            if (File.Exists(Application.StartupPath + "\\使用说明.docx"))
+            {
+                File.Delete(Application.StartupPath + "\\使用说明.docx");
+            }
+            if (File.Exists(Application.StartupPath + "\\Store\\music.mp3"))
+            {
+                File.Delete(Application.StartupPath + "\\Store\\music.mp3");
+            }
 
             Form1.dpixRatio = Environment.OSVersion.Version.Major >= 10 ? CreateGraphics().DpiX / 96 : Program.Utility.DpiX / 96;
             if (Form1.dpixRatio > 1)
@@ -245,6 +261,12 @@ namespace XboxDownload
             else
                 MessageBox.Show("文件不存在", "Error", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             tsmProductManual.Enabled = true;
+        }
+
+        private void TsmTeaching_Click(object sender, EventArgs e)
+        {
+            var tsm = sender as ToolStripMenuItem;
+            Process.Start(tsm.Tag.ToString());
         }
 
         private void TsmAbout_Click(object sender, EventArgs e)
@@ -1506,16 +1528,16 @@ namespace XboxDownload
                     {
                         LinkLabel lb1 = new LinkLabel()
                         {
-                            Tag = "http://assets1.xboxlive.com/6/5c4cab3a-4bbe-4de1-84be-68cd4caa9cd5/e4e9e474-8b68-4eeb-89a9-b43a081c6591/1.1.31695.21.398495c0-2751-4819-91a1-053b69901884/Halo5-Guardians_1.1.31695.21_x64_6_8wekyb3d8bbwe",
-                            Text = "光环5:守护者",
+                            Tag = "http://assets1.xboxlive.com/14/63d6ca52-9811-4650-8037-f9b178e28383/0698b936-d300-4451-b9a0-0be0514bbbe5/1.3242.15531.0.b8052ecb-4abc-4b70-a1e8-38bad229e589/Microsoft.254428597CFE2_1.3242.15531.0_neutral__8wekyb3d8bbwe_xs.xvc",
+                            Text = "光环:无限",
                             AutoSize = true,
                             Parent = this.flpTestUrl
                         };
                         lb1.LinkClicked += new LinkLabelLinkClickedEventHandler(this.LinkTestUrl_LinkClicked);
                         LinkLabel lb2 = new LinkLabel()
                         {
-                            Tag = "http://assets1.xboxlive.com/5/c7d3c93c-5c3c-41f8-a169-96eeb420ed33/3d7efd63-f26f-41d1-9f3e-f55dfee68186/1.473.947.0.77a9fa43-50cf-4bfd-86a9-6c48c7b3931b/Sunrise_1.473.947.0_x64__8wekyb3d8bbwe",
-                            Text = "极限竞速:地平线4",
+                            Tag = "http://assets1.xboxlive.com/11/67bdc61f-334e-49bf-a7c4-561a4dd37f2f/7401a627-f4a2-461f-af22-7ee7b7e26b9a/3.414.967.0.032b8daa-1d70-45dd-bfdb-e358a5193a2e/Microsoft.624F8B84B80_3.414.967.0_neutral__8wekyb3d8bbwe_xs.xvc",
+                            Text = "极限竞速:地平线5",
                             AutoSize = true,
                             Parent = this.flpTestUrl
                         };
@@ -1539,16 +1561,16 @@ namespace XboxDownload
                     {
                         LinkLabel lb1 = new LinkLabel()
                         {
-                            Tag = "http://assets1.xboxlive.cn/6/5c4cab3a-4bbe-4de1-84be-68cd4caa9cd5/e4e9e474-8b68-4eeb-89a9-b43a081c6591/1.1.31695.21.398495c0-2751-4819-91a1-053b69901884/Halo5-Guardians_1.1.31695.21_x64_6_8wekyb3d8bbwe",
-                            Text = "光环5:守护者",
+                            Tag = "http://assets1.xboxlive.cn/14/63d6ca52-9811-4650-8037-f9b178e28383/0698b936-d300-4451-b9a0-0be0514bbbe5/1.3242.15531.0.b8052ecb-4abc-4b70-a1e8-38bad229e589/Microsoft.254428597CFE2_1.3242.15531.0_neutral__8wekyb3d8bbwe_xs.xvc",
+                            Text = "光环:无限",
                             AutoSize = true,
                             Parent = this.flpTestUrl
                         };
                         lb1.LinkClicked += new LinkLabelLinkClickedEventHandler(this.LinkTestUrl_LinkClicked);
                         LinkLabel lb2 = new LinkLabel()
                         {
-                            Tag = "http://assets1.xboxlive.cn/5/c7d3c93c-5c3c-41f8-a169-96eeb420ed33/3d7efd63-f26f-41d1-9f3e-f55dfee68186/1.473.947.0.77a9fa43-50cf-4bfd-86a9-6c48c7b3931b/Sunrise_1.473.947.0_x64__8wekyb3d8bbwe",
-                            Text = "极限竞速:地平线4",
+                            Tag = "http://assets1.xboxlive.cn/11/67bdc61f-334e-49bf-a7c4-561a4dd37f2f/7401a627-f4a2-461f-af22-7ee7b7e26b9a/3.414.967.0.032b8daa-1d70-45dd-bfdb-e358a5193a2e/Microsoft.624F8B84B80_3.414.967.0_neutral__8wekyb3d8bbwe_xs.xvc",
+                            Text = "极限竞速:地平线5",
                             AutoSize = true,
                             Parent = this.flpTestUrl
                         };
@@ -1599,7 +1621,7 @@ namespace XboxDownload
                     {
                         LinkLabel lb1 = new LinkLabel()
                         {
-                            Tag = "https://origin-a.akamaihd.net/EA-Desktop-Client-Download/installer-releases/EADesktop-12.0.119.4978-505.msi",
+                            Tag = "https://origin-a.akamaihd.net/EA-Desktop-Client-Download/installer-releases/EAapp-12.0.169.5058-728.msi",
                             Text = "EA Desktop",
                             AutoSize = true,
                             Parent = this.flpTestUrl

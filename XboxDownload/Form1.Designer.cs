@@ -42,6 +42,10 @@ namespace XboxDownload
             this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
             this.tsmUpdate = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmProductManual = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmTeaching = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmTeaching1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmTeaching2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmTeaching3 = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -346,6 +350,7 @@ namespace XboxDownload
             this.toolStripDropDownButton2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmUpdate,
             this.tsmProductManual,
+            this.tsmTeaching,
             this.tsmAbout});
             this.toolStripDropDownButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton2.Image")));
             this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -366,6 +371,40 @@ namespace XboxDownload
             this.tsmProductManual.Size = new System.Drawing.Size(182, 34);
             this.tsmProductManual.Text = "使用说明";
             this.tsmProductManual.Click += new System.EventHandler(this.TsmProductManual_Click);
+            // 
+            // tsmTeaching
+            // 
+            this.tsmTeaching.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmTeaching1,
+            this.tsmTeaching2,
+            this.tsmTeaching3});
+            this.tsmTeaching.Name = "tsmTeaching";
+            this.tsmTeaching.Size = new System.Drawing.Size(182, 34);
+            this.tsmTeaching.Text = "视频教程";
+            // 
+            // tsmTeaching1
+            // 
+            this.tsmTeaching1.Name = "tsmTeaching1";
+            this.tsmTeaching1.Size = new System.Drawing.Size(298, 34);
+            this.tsmTeaching1.Tag = "https://www.bilibili.com/video/BV1TR4y1b7tz";
+            this.tsmTeaching1.Text = "使用教程1";
+            this.tsmTeaching1.Click += new System.EventHandler(this.TsmTeaching_Click);
+            // 
+            // tsmTeaching2
+            // 
+            this.tsmTeaching2.Name = "tsmTeaching2";
+            this.tsmTeaching2.Size = new System.Drawing.Size(298, 34);
+            this.tsmTeaching2.Tag = "https://www.bilibili.com/video/BV1vL4y1H7KJ";
+            this.tsmTeaching2.Text = "使用教程2";
+            this.tsmTeaching2.Click += new System.EventHandler(this.TsmTeaching_Click);
+            // 
+            // tsmTeaching3
+            // 
+            this.tsmTeaching3.Name = "tsmTeaching3";
+            this.tsmTeaching3.Size = new System.Drawing.Size(298, 34);
+            this.tsmTeaching3.Tag = "https://www.bilibili.com/video/BV1wP4y1G7zf";
+            this.tsmTeaching3.Text = "OpenWrt域名跳转加速";
+            this.tsmTeaching3.Click += new System.EventHandler(this.TsmTeaching_Click);
             // 
             // tsmAbout
             // 
@@ -3023,6 +3062,10 @@ namespace XboxDownload
         private System.Windows.Forms.ToolStripMenuItem tsmUseIPBattle;
         private System.Windows.Forms.LinkLabel linkEaOriginRepair;
         private System.Windows.Forms.ToolStripMenuItem tsmUseIPEABattle;
+        private System.Windows.Forms.ToolStripMenuItem tsmTeaching;
+        private System.Windows.Forms.ToolStripMenuItem tsmTeaching3;
+        private System.Windows.Forms.ToolStripMenuItem tsmTeaching1;
+        private System.Windows.Forms.ToolStripMenuItem tsmTeaching2;
     }
 }
 
