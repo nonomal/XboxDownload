@@ -38,22 +38,6 @@ namespace XboxDownload
         public Form1()
         {
             InitializeComponent();
-            if (File.Exists(Application.StartupPath + "\\Domain"))
-            {
-                File.Delete(Application.StartupPath + "\\Domain");
-            }
-            if (File.Exists(Application.StartupPath + "\\IP列表(assets1.xboxlive.cn).txt"))
-            {
-                File.Delete(Application.StartupPath + "\\IP列表(assets1.xboxlive.cn).txt");
-            }
-            if (File.Exists(Application.StartupPath + "\\使用说明.docx"))
-            {
-                File.Delete(Application.StartupPath + "\\使用说明.docx");
-            }
-            if (File.Exists(Application.StartupPath + "\\Store\\music.mp3"))
-            {
-                File.Delete(Application.StartupPath + "\\Store\\music.mp3");
-            }
 
             Form1.dpixRatio = Environment.OSVersion.Version.Major >= 10 ? CreateGraphics().DpiX / 96 : Program.Utility.DpiX / 96;
             if (Form1.dpixRatio > 1)
