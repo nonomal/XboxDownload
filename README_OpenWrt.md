@@ -3,7 +3,7 @@
 提速原理请参考PC [Xbox下载助手](https://github.com/skydevil88/XboxDownload "Xbox下载助手")，同时支持PC微软商店加速。
 其它路由器如果能安装 [Lighttpd](#方法一lighttpd "Lighttpd") 或者 [Nginx](#方法二nginx "Lighttpd") 也可以按照教程试试
 
-Xbox使用此方法需要关闭路由器IPv6功能，如果有其它设备需要用到IPv6，可以使用以下两条命令屏蔽掉Xbox的IPv6地址（XBOX_MAC替换成Xbox Mac地址）
+Xbox使用此方法需要关闭路由器IPv6功能，如果有其它设备需要用到IPv6，可以在 网络->防火墙->自定义规则 中添加以下两条规则屏蔽掉Xbox的IPv6地址，（XBOX_MAC替换成Xbox Mac地址）
 ```bash
 ip6tables -I INPUT -p icmpv6 -m mac --mac-source XBOX_MAC -j DROP 
 ip6tables -I INPUT -p udp -m mac --mac-source XBOX_MAC --dport 547 -j DROP
