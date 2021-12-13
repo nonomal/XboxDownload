@@ -38,6 +38,22 @@ namespace XboxDownload
         public Form1()
         {
             InitializeComponent();
+            if (File.Exists(Application.StartupPath + "\\Domain"))
+            {
+                File.Delete(Application.StartupPath + "\\Domain");
+            }
+            if (File.Exists(Application.StartupPath + "\\IP列表(assets1.xboxlive.cn).txt"))
+            {
+                File.Delete(Application.StartupPath + "\\IP列表(assets1.xboxlive.cn).txt");
+            }
+            if (File.Exists(Application.StartupPath + "\\使用说明.docx"))
+            {
+                File.Delete(Application.StartupPath + "\\使用说明.docx");
+            }
+            if (File.Exists(Application.StartupPath + "\\Store\\music.mp3"))
+            {
+                File.Delete(Application.StartupPath + "\\Store\\music.mp3");
+            }
 
             Form1.dpixRatio = Environment.OSVersion.Version.Major >= 10 ? CreateGraphics().DpiX / 96 : Program.Utility.DpiX / 96;
             if (Form1.dpixRatio > 1)
@@ -1512,7 +1528,7 @@ namespace XboxDownload
                     {
                         LinkLabel lb1 = new LinkLabel()
                         {
-                            Tag = "http://assets1.xboxlive.com/14/63d6ca52-9811-4650-8037-f9b178e28383/0698b936-d300-4451-b9a0-0be0514bbbe5/1.3242.15531.0.b8052ecb-4abc-4b70-a1e8-38bad229e589/Microsoft.254428597CFE2_1.3242.15531.0_neutral__8wekyb3d8bbwe_xs.xvc",
+                            Tag = "http://assets1.xboxlive.com/Z/61044dc8-2893-4092-949a-9d6a59fd9c17/0698b936-d300-4451-b9a0-0be0514bbbe5/1.3249.19634.0.e10dc476-276f-4b97-bbc3-9d4f852797dc/Microsoft.254428597CFE2_1.3249.19634.0_neutral__8wekyb3d8bbwe_xs.xvc",
                             Text = "光环:无限",
                             AutoSize = true,
                             Parent = this.flpTestUrl
@@ -1520,7 +1536,7 @@ namespace XboxDownload
                         lb1.LinkClicked += new LinkLabelLinkClickedEventHandler(this.LinkTestUrl_LinkClicked);
                         LinkLabel lb2 = new LinkLabel()
                         {
-                            Tag = "http://assets1.xboxlive.com/11/67bdc61f-334e-49bf-a7c4-561a4dd37f2f/7401a627-f4a2-461f-af22-7ee7b7e26b9a/3.414.967.0.032b8daa-1d70-45dd-bfdb-e358a5193a2e/Microsoft.624F8B84B80_3.414.967.0_neutral__8wekyb3d8bbwe_xs.xvc",
+                            Tag = "http://assets1.xboxlive.com/8/b9fe0d32-5f57-49de-ab29-ba289db50647/7401a627-f4a2-461f-af22-7ee7b7e26b9a/3.416.408.0.21792025-11b5-42ae-8bc7-bb8372f8e023/Microsoft.624F8B84B80_3.416.408.0_neutral__8wekyb3d8bbwe_xs.xvc",
                             Text = "极限竞速:地平线5",
                             AutoSize = true,
                             Parent = this.flpTestUrl
@@ -1545,7 +1561,7 @@ namespace XboxDownload
                     {
                         LinkLabel lb1 = new LinkLabel()
                         {
-                            Tag = "http://assets1.xboxlive.cn/14/63d6ca52-9811-4650-8037-f9b178e28383/0698b936-d300-4451-b9a0-0be0514bbbe5/1.3242.15531.0.b8052ecb-4abc-4b70-a1e8-38bad229e589/Microsoft.254428597CFE2_1.3242.15531.0_neutral__8wekyb3d8bbwe_xs.xvc",
+                            Tag = "http://assets1.xboxlive.cn/Z/61044dc8-2893-4092-949a-9d6a59fd9c17/0698b936-d300-4451-b9a0-0be0514bbbe5/1.3249.19634.0.e10dc476-276f-4b97-bbc3-9d4f852797dc/Microsoft.254428597CFE2_1.3249.19634.0_neutral__8wekyb3d8bbwe_xs.xvc",
                             Text = "光环:无限",
                             AutoSize = true,
                             Parent = this.flpTestUrl
@@ -1553,7 +1569,7 @@ namespace XboxDownload
                         lb1.LinkClicked += new LinkLabelLinkClickedEventHandler(this.LinkTestUrl_LinkClicked);
                         LinkLabel lb2 = new LinkLabel()
                         {
-                            Tag = "http://assets1.xboxlive.cn/11/67bdc61f-334e-49bf-a7c4-561a4dd37f2f/7401a627-f4a2-461f-af22-7ee7b7e26b9a/3.414.967.0.032b8daa-1d70-45dd-bfdb-e358a5193a2e/Microsoft.624F8B84B80_3.414.967.0_neutral__8wekyb3d8bbwe_xs.xvc",
+                            Tag = "http://assets1.xboxlive.cn/8/b9fe0d32-5f57-49de-ab29-ba289db50647/7401a627-f4a2-461f-af22-7ee7b7e26b9a/3.416.408.0.21792025-11b5-42ae-8bc7-bb8372f8e023/Microsoft.624F8B84B80_3.416.408.0_neutral__8wekyb3d8bbwe_xs.xvc",
                             Text = "极限竞速:地平线5",
                             AutoSize = true,
                             Parent = this.flpTestUrl
@@ -1605,7 +1621,7 @@ namespace XboxDownload
                     {
                         LinkLabel lb1 = new LinkLabel()
                         {
-                            Tag = "https://origin-a.akamaihd.net/EA-Desktop-Client-Download/installer-releases/EAapp-12.0.169.5058-728.msi",
+                            Tag = "https://origin-a.akamaihd.net/EA-Desktop-Client-Download/installer-releases/EAapp-12.0.170.5061-736.msi",
                             Text = "EA Desktop",
                             AutoSize = true,
                             Parent = this.flpTestUrl
@@ -3268,7 +3284,7 @@ namespace XboxDownload
             }
             else
             {
-                ListViewItem listViewItem = new ListViewItem(new string[] { status, content, ip, string.Format("{0:T}", DateTime.Now) });
+                ListViewItem listViewItem = new ListViewItem(new string[] { status, content, ip, DateTime.Now.ToString("HH:mm:ss.fff") });
                 if (argb >= 1) listViewItem.ForeColor = Color.FromArgb(argb);
                 lvLog.Items.Insert(0, listViewItem);
             }

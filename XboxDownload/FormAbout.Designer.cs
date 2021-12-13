@@ -47,9 +47,9 @@ namespace XboxDownload
             this.label1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.Location = new System.Drawing.Point(154, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(274, 24);
+            this.label1.Size = new System.Drawing.Size(262, 24);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Xbox 下载助手 By Devil";
+            this.label1.Text = "Xbox下载助手 By Devil";
             // 
             // label3
             // 

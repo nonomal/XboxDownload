@@ -359,14 +359,14 @@ namespace XboxDownload
             // tsmUpdate
             // 
             this.tsmUpdate.Name = "tsmUpdate";
-            this.tsmUpdate.Size = new System.Drawing.Size(270, 34);
+            this.tsmUpdate.Size = new System.Drawing.Size(182, 34);
             this.tsmUpdate.Text = "检查更新";
             this.tsmUpdate.Click += new System.EventHandler(this.TsmUpdate_Click);
             // 
             // tsmProductManual
             // 
             this.tsmProductManual.Name = "tsmProductManual";
-            this.tsmProductManual.Size = new System.Drawing.Size(270, 34);
+            this.tsmProductManual.Size = new System.Drawing.Size(182, 34);
             this.tsmProductManual.Text = "使用说明";
             this.tsmProductManual.Click += new System.EventHandler(this.TsmProductManual_Click);
             // 
@@ -375,7 +375,7 @@ namespace XboxDownload
             this.tsmTeaching.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmTeaching1});
             this.tsmTeaching.Name = "tsmTeaching";
-            this.tsmTeaching.Size = new System.Drawing.Size(270, 34);
+            this.tsmTeaching.Size = new System.Drawing.Size(182, 34);
             this.tsmTeaching.Text = "视频教程";
             // 
             // tsmTeaching1
@@ -389,7 +389,7 @@ namespace XboxDownload
             // tsmAbout
             // 
             this.tsmAbout.Name = "tsmAbout";
-            this.tsmAbout.Size = new System.Drawing.Size(270, 34);
+            this.tsmAbout.Size = new System.Drawing.Size(182, 34);
             this.tsmAbout.Text = "关于";
             this.tsmAbout.Click += new System.EventHandler(this.TsmAbout_Click);
             // 
@@ -482,7 +482,7 @@ namespace XboxDownload
             // Col_Time
             // 
             this.Col_Time.Text = "时间";
-            this.Col_Time.Width = 70;
+            this.Col_Time.Width = 90;
             // 
             // panel1
             // 

@@ -66,7 +66,7 @@ namespace XboxDownload
                 bool isUpdate = false;
                 Application.OpenForms[0].Invoke(new MethodInvoker(() =>
                 {
-                    isUpdate = MessageBox.Show("已检测到新版本, 是否立即更新?", "软件更新", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button2) == DialogResult.Yes;
+                    isUpdate = MessageBox.Show("已检测到新版本, 是否立即更新?", "软件更新", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button1) == DialogResult.Yes;
                 }));
                 if (!isUpdate) return;
 
