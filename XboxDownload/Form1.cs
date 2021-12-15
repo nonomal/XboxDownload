@@ -704,6 +704,7 @@ namespace XboxDownload
                             sb.AppendLine(Properties.Settings.Default.AppIP + " dl.delivery.mp.microsoft.com");
                             sb.AppendLine(Properties.Settings.Default.AppIP + " tlu.dl.delivery.mp.microsoft.com");
                         }
+                        RebootDoSvc();
                     }
                     if (Properties.Settings.Default.EAStore)
                     {
@@ -748,6 +749,29 @@ namespace XboxDownload
             {
                 if (add) MessageBox.Show("修改系统Hosts文件失败，错误信息：" + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void RebootDoSvc()
+        {
+            // 重启 Delivery Optimization 服务
+            Task.Run(() =>
+            {
+                ServiceController[] services = ServiceController.GetServices();
+                foreach (ServiceController service in services)
+                {
+                    if (service.ServiceName.Equals("DoSvc"))
+                    {
+                        if (service.Status == ServiceControllerStatus.Running)
+                        {
+                            service.Stop();
+                            service.WaitForStatus(ServiceControllerStatus.Stopped);
+                        }
+                        service.Start();
+                        service.WaitForStatus(ServiceControllerStatus.Running);
+                        break;
+                    }
+                }
+            });
         }
 
         private void LvLog_MouseClick(object sender, MouseEventArgs e)
@@ -1063,6 +1087,7 @@ namespace XboxDownload
                         sb.AppendLine(ip + " xvcf1.xboxlive.com # Xbox下载助手");
                         sb.AppendLine(ip + " xvcf2.xboxlive.com # Xbox下载助手");
                         msg = "系统Hosts文件写入成功，以下规则已写入系统Hosts文件\n\n" + sb.ToString();
+                        RebootDoSvc();
                         break;
                     case "assets1.xboxlive.cn":
                     case "assets2.xboxlive.cn":
@@ -1081,6 +1106,7 @@ namespace XboxDownload
                         sb.AppendLine(ip + " dl.delivery.mp.microsoft.com # Xbox下载助手");
                         sb.AppendLine(ip + " tlu.dl.delivery.mp.microsoft.com # Xbox下载助手");
                         msg = "系统Hosts文件写入成功，以下规则已写入系统Hosts文件\n\n" + sb.ToString();
+                        RebootDoSvc();
                         break;
                     case "gst.prod.dl.playstation.net":
                     case "gs2.ww.prod.dl.playstation.net":
@@ -1520,7 +1546,7 @@ namespace XboxDownload
                         lb1.LinkClicked += new LinkLabelLinkClickedEventHandler(this.LinkTestUrl_LinkClicked);
                         LinkLabel lb2 = new LinkLabel()
                         {
-                            Tag = "http://assets1.xboxlive.com/8/b9fe0d32-5f57-49de-ab29-ba289db50647/7401a627-f4a2-461f-af22-7ee7b7e26b9a/3.416.408.0.21792025-11b5-42ae-8bc7-bb8372f8e023/Microsoft.624F8B84B80_3.416.408.0_neutral__8wekyb3d8bbwe_xs.xvc",
+                            Tag = "http://assets1.xboxlive.com/5/20060dc3-d6a5-4d82-a181-883240479932/7401a627-f4a2-461f-af22-7ee7b7e26b9a/3.417.812.0.b0fef9b7-7955-42ab-a509-77dcc6151343/Microsoft.624F8B84B80_3.417.812.0_neutral__8wekyb3d8bbwe_xs.xvc",
                             Text = "极限竞速:地平线5",
                             AutoSize = true,
                             Parent = this.flpTestUrl
@@ -1553,7 +1579,7 @@ namespace XboxDownload
                         lb1.LinkClicked += new LinkLabelLinkClickedEventHandler(this.LinkTestUrl_LinkClicked);
                         LinkLabel lb2 = new LinkLabel()
                         {
-                            Tag = "http://assets1.xboxlive.cn/8/b9fe0d32-5f57-49de-ab29-ba289db50647/7401a627-f4a2-461f-af22-7ee7b7e26b9a/3.416.408.0.21792025-11b5-42ae-8bc7-bb8372f8e023/Microsoft.624F8B84B80_3.416.408.0_neutral__8wekyb3d8bbwe_xs.xvc",
+                            Tag = "http://assets1.xboxlive.cn/5/20060dc3-d6a5-4d82-a181-883240479932/7401a627-f4a2-461f-af22-7ee7b7e26b9a/3.417.812.0.b0fef9b7-7955-42ab-a509-77dcc6151343/Microsoft.624F8B84B80_3.417.812.0_neutral__8wekyb3d8bbwe_xs.xvc",
                             Text = "极限竞速:地平线5",
                             AutoSize = true,
                             Parent = this.flpTestUrl
@@ -2050,7 +2076,7 @@ namespace XboxDownload
         {
             tbContentId.Text = tbProductID.Text = tbBuildID.Text = tbFileTimeCreated.Text = tbDriveSize.Text = tbPackageVersion.Text = string.Empty;
             linkCopyContentID.Enabled = linkRename.Enabled = false;
-            if (bFileBuffer.Length >= 4096)
+            if (bFileBuffer != null && bFileBuffer.Length >= 4096)
             {
                 using (MemoryStream ms = new MemoryStream(bFileBuffer))
                 {
