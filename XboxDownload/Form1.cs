@@ -704,7 +704,7 @@ namespace XboxDownload
                             sb.AppendLine(Properties.Settings.Default.AppIP + " dl.delivery.mp.microsoft.com");
                             sb.AppendLine(Properties.Settings.Default.AppIP + " tlu.dl.delivery.mp.microsoft.com");
                         }
-                        RebootDoSvc();
+                        RestartService("DoSvc");
                     }
                     if (Properties.Settings.Default.EAStore)
                     {
@@ -751,15 +751,14 @@ namespace XboxDownload
             }
         }
 
-        private void RebootDoSvc()
+        private void RestartService(string servicename)
         {
-            // 重启 Delivery Optimization 服务
             Task.Run(() =>
             {
                 ServiceController[] services = ServiceController.GetServices();
                 foreach (ServiceController service in services)
                 {
-                    if (service.ServiceName.Equals("DoSvc"))
+                    if (service.ServiceName.Equals(servicename))
                     {
                         if (service.Status == ServiceControllerStatus.Running)
                         {
@@ -1087,7 +1086,7 @@ namespace XboxDownload
                         sb.AppendLine(ip + " xvcf1.xboxlive.com # Xbox下载助手");
                         sb.AppendLine(ip + " xvcf2.xboxlive.com # Xbox下载助手");
                         msg = "系统Hosts文件写入成功，以下规则已写入系统Hosts文件\n\n" + sb.ToString();
-                        RebootDoSvc();
+                        RestartService("DoSvc");
                         break;
                     case "assets1.xboxlive.cn":
                     case "assets2.xboxlive.cn":
@@ -1106,7 +1105,7 @@ namespace XboxDownload
                         sb.AppendLine(ip + " dl.delivery.mp.microsoft.com # Xbox下载助手");
                         sb.AppendLine(ip + " tlu.dl.delivery.mp.microsoft.com # Xbox下载助手");
                         msg = "系统Hosts文件写入成功，以下规则已写入系统Hosts文件\n\n" + sb.ToString();
-                        RebootDoSvc();
+                        RestartService("DoSvc");
                         break;
                     case "gst.prod.dl.playstation.net":
                     case "gs2.ww.prod.dl.playstation.net":

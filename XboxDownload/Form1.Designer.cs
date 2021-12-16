@@ -1892,9 +1892,9 @@ namespace XboxDownload
             this.gbGameInfo.Controls.Add(this.lvGame);
             this.gbGameInfo.Controls.Add(this.panel8);
             this.gbGameInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbGameInfo.Location = new System.Drawing.Point(3, 147);
+            this.gbGameInfo.Location = new System.Drawing.Point(3, 158);
             this.gbGameInfo.Name = "gbGameInfo";
-            this.gbGameInfo.Size = new System.Drawing.Size(1464, 665);
+            this.gbGameInfo.Size = new System.Drawing.Size(1464, 654);
             this.gbGameInfo.TabIndex = 1;
             this.gbGameInfo.TabStop = false;
             this.gbGameInfo.Text = "信息";
@@ -1912,7 +1912,7 @@ namespace XboxDownload
             this.lvGame.HideSelection = false;
             this.lvGame.Location = new System.Drawing.Point(3, 374);
             this.lvGame.Name = "lvGame";
-            this.lvGame.Size = new System.Drawing.Size(1458, 288);
+            this.lvGame.Size = new System.Drawing.Size(1458, 277);
             this.lvGame.TabIndex = 2;
             this.lvGame.UseCompatibleStateImageBehavior = false;
             this.lvGame.View = System.Windows.Forms.View.Details;
@@ -2175,7 +2175,7 @@ namespace XboxDownload
             this.groupBox7.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox7.Location = new System.Drawing.Point(3, 3);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(1464, 144);
+            this.groupBox7.Size = new System.Drawing.Size(1464, 155);
             this.groupBox7.TabIndex = 0;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "游戏信息 (Xbox && 微软商店)";
@@ -2185,7 +2185,7 @@ namespace XboxDownload
             this.flpGameWithGold.AutoScroll = true;
             this.flpGameWithGold.Location = new System.Drawing.Point(136, 94);
             this.flpGameWithGold.Name = "flpGameWithGold";
-            this.flpGameWithGold.Size = new System.Drawing.Size(1274, 40);
+            this.flpGameWithGold.Size = new System.Drawing.Size(1274, 55);
             this.flpGameWithGold.TabIndex = 10;
             // 
             // label26
