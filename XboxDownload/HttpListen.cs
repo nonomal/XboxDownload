@@ -177,10 +177,24 @@ namespace XboxDownload
                                 case "eu.cdn.blizzard.com":
                                 case "kr.cdn.blizzard.com":
                                 case "level3.blizzard.com":
+                                case "fastly-download.epicgames.com":
+                                    _redirect = true;
+                                    _newHosts = "blzddist1-a.akamaihd.net";
+                                    break;
+                            }
+                        }
+                        if (Properties.Settings.Default.EpicStore && Properties.Settings.Default.EpicCDN)
+                        {
+                            switch (_hosts)
+                            {
+                                case "download.epicgames.com":
+                                case "download2.epicgames.com":
+                                case "download3.epicgames.com":
+                                case "download4.epicgames.com":
                                 case "blizzard.nefficient.co.kr":
                                 case "blizzard.gcdn.cloudn.co.kr":
                                     _redirect = true;
-                                    _newHosts = "blzddist1-a.akamaihd.net";
+                                    _newHosts = "epicgames-download1.akamaized.net";
                                     break;
                             }
                         }

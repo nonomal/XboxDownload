@@ -31,10 +31,10 @@ namespace XboxDownload
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.tsmiMinimizeTray = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,6 +63,11 @@ namespace XboxDownload
             this.cbLocalIP = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ckbEpicCDN = new System.Windows.Forms.CheckBox();
+            this.ckbEpicStore = new System.Windows.Forms.CheckBox();
+            this.label53 = new System.Windows.Forms.Label();
+            this.tbEpicIP = new System.Windows.Forms.TextBox();
+            this.labelEpic = new System.Windows.Forms.Label();
             this.ckbBattleStore = new System.Windows.Forms.CheckBox();
             this.ckbBattleCDN = new System.Windows.Forms.CheckBox();
             this.label54 = new System.Windows.Forms.Label();
@@ -257,9 +262,7 @@ namespace XboxDownload
             this.tsmUseIPApp = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmUseIPXboxApp = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmUseIPPS = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmUseIPEA = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmUseIPBattle = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmUseIPEABattle = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmUseIPEaBattleEpic = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmUseIPHosts = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmExportRule = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmDNSmasp = new System.Windows.Forms.ToolStripMenuItem();
@@ -437,9 +440,9 @@ namespace XboxDownload
             // 
             this.groupBox2.Controls.Add(this.lvLog);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(3, 360);
+            this.groupBox2.Location = new System.Drawing.Point(3, 388);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1464, 412);
+            this.groupBox2.Size = new System.Drawing.Size(1464, 384);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "日志";
@@ -459,7 +462,7 @@ namespace XboxDownload
             this.lvLog.Margin = new System.Windows.Forms.Padding(4);
             this.lvLog.MultiSelect = false;
             this.lvLog.Name = "lvLog";
-            this.lvLog.Size = new System.Drawing.Size(1458, 385);
+            this.lvLog.Size = new System.Drawing.Size(1458, 357);
             this.lvLog.TabIndex = 4;
             this.lvLog.UseCompatibleStateImageBehavior = false;
             this.lvLog.View = System.Windows.Forms.View.Details;
@@ -586,6 +589,11 @@ namespace XboxDownload
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.ckbEpicCDN);
+            this.groupBox1.Controls.Add(this.ckbEpicStore);
+            this.groupBox1.Controls.Add(this.label53);
+            this.groupBox1.Controls.Add(this.tbEpicIP);
+            this.groupBox1.Controls.Add(this.labelEpic);
             this.groupBox1.Controls.Add(this.ckbBattleStore);
             this.groupBox1.Controls.Add(this.ckbBattleCDN);
             this.groupBox1.Controls.Add(this.label54);
@@ -629,10 +637,55 @@ namespace XboxDownload
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1464, 357);
+            this.groupBox1.Size = new System.Drawing.Size(1464, 385);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "设置";
+            // 
+            // ckbEpicCDN
+            // 
+            this.ckbEpicCDN.AutoSize = true;
+            this.ckbEpicCDN.Location = new System.Drawing.Point(807, 256);
+            this.ckbEpicCDN.Name = "ckbEpicCDN";
+            this.ckbEpicCDN.Size = new System.Drawing.Size(160, 22);
+            this.ckbEpicCDN.TabIndex = 13;
+            this.ckbEpicCDN.Text = "跳转CDN Akamai";
+            this.ckbEpicCDN.UseVisualStyleBackColor = true;
+            // 
+            // ckbEpicStore
+            // 
+            this.ckbEpicStore.AutoSize = true;
+            this.ckbEpicStore.Location = new System.Drawing.Point(1240, 196);
+            this.ckbEpicStore.Name = "ckbEpicStore";
+            this.ckbEpicStore.Size = new System.Drawing.Size(160, 22);
+            this.ckbEpicStore.TabIndex = 27;
+            this.ckbEpicStore.Text = "加速 Epic (PC)";
+            this.ckbEpicStore.UseVisualStyleBackColor = true;
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(514, 258);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(278, 18);
+            this.label53.TabIndex = 125;
+            this.label53.Text = "同上，可以共用 EA 下载域名 IP.";
+            // 
+            // tbEpicIP
+            // 
+            this.tbEpicIP.Location = new System.Drawing.Point(320, 254);
+            this.tbEpicIP.Name = "tbEpicIP";
+            this.tbEpicIP.Size = new System.Drawing.Size(188, 28);
+            this.tbEpicIP.TabIndex = 12;
+            // 
+            // labelEpic
+            // 
+            this.labelEpic.AutoSize = true;
+            this.labelEpic.Location = new System.Drawing.Point(116, 258);
+            this.labelEpic.Name = "labelEpic";
+            this.labelEpic.Size = new System.Drawing.Size(188, 18);
+            this.labelEpic.TabIndex = 124;
+            this.labelEpic.Text = "指定 Epic 下载域名IP";
             // 
             // ckbBattleStore
             // 
@@ -817,10 +870,10 @@ namespace XboxDownload
             // 
             // butBrowse
             // 
-            this.butBrowse.Location = new System.Drawing.Point(1018, 254);
+            this.butBrowse.Location = new System.Drawing.Point(1018, 286);
             this.butBrowse.Name = "butBrowse";
             this.butBrowse.Size = new System.Drawing.Size(124, 32);
-            this.butBrowse.TabIndex = 14;
+            this.butBrowse.TabIndex = 16;
             this.butBrowse.Text = "浏览";
             this.butBrowse.UseVisualStyleBackColor = true;
             this.butBrowse.Click += new System.EventHandler(this.ButBrowse_Click);
@@ -828,16 +881,16 @@ namespace XboxDownload
             // tbLocalPath
             // 
             this.tbLocalPath.BackColor = System.Drawing.SystemColors.Window;
-            this.tbLocalPath.Location = new System.Drawing.Point(406, 256);
+            this.tbLocalPath.Location = new System.Drawing.Point(406, 288);
             this.tbLocalPath.Name = "tbLocalPath";
             this.tbLocalPath.ReadOnly = true;
             this.tbLocalPath.Size = new System.Drawing.Size(607, 28);
-            this.tbLocalPath.TabIndex = 13;
+            this.tbLocalPath.TabIndex = 15;
             // 
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(267, 260);
+            this.label24.Location = new System.Drawing.Point(267, 292);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(134, 18);
             this.label24.TabIndex = 102;
@@ -846,17 +899,17 @@ namespace XboxDownload
             // ckbTruncation
             // 
             this.ckbTruncation.AutoSize = true;
-            this.ckbTruncation.Location = new System.Drawing.Point(118, 292);
+            this.ckbTruncation.Location = new System.Drawing.Point(118, 324);
             this.ckbTruncation.Name = "ckbTruncation";
             this.ckbTruncation.Size = new System.Drawing.Size(997, 22);
-            this.ckbTruncation.TabIndex = 15;
+            this.ckbTruncation.TabIndex = 17;
             this.ckbTruncation.Text = "Xbox360主机本地上传防爆头(Xbox360主机 本地上传游戏、监听下载地址 需要在域名标签页中添加Xbox360主机下载域名)";
             this.ckbTruncation.UseVisualStyleBackColor = true;
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(9, 326);
+            this.label20.Location = new System.Drawing.Point(9, 358);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(1304, 18);
             this.label20.TabIndex = 101;
@@ -886,10 +939,10 @@ namespace XboxDownload
             // ckbLocalUpload
             // 
             this.ckbLocalUpload.AutoSize = true;
-            this.ckbLocalUpload.Location = new System.Drawing.Point(118, 260);
+            this.ckbLocalUpload.Location = new System.Drawing.Point(118, 292);
             this.ckbLocalUpload.Name = "ckbLocalUpload";
             this.ckbLocalUpload.Size = new System.Drawing.Size(142, 22);
-            this.ckbLocalUpload.TabIndex = 12;
+            this.ckbLocalUpload.TabIndex = 14;
             this.ckbLocalUpload.Text = "启用本地上传";
             this.ckbLocalUpload.UseVisualStyleBackColor = true;
             // 
@@ -905,9 +958,9 @@ namespace XboxDownload
             // 
             // butStart
             // 
-            this.butStart.Location = new System.Drawing.Point(1240, 202);
+            this.butStart.Location = new System.Drawing.Point(1240, 224);
             this.butStart.Name = "butStart";
-            this.butStart.Size = new System.Drawing.Size(172, 110);
+            this.butStart.Size = new System.Drawing.Size(172, 122);
             this.butStart.TabIndex = 100;
             this.butStart.Text = "开始监听";
             this.butStart.UseVisualStyleBackColor = true;
@@ -1069,9 +1122,9 @@ namespace XboxDownload
             // 
             // Col_TTL
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle1.Format = "N0";
-            this.Col_TTL.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Format = "N0";
+            this.Col_TTL.DefaultCellStyle = dataGridViewCellStyle5;
             this.Col_TTL.HeaderText = "TTL";
             this.Col_TTL.MinimumWidth = 8;
             this.Col_TTL.Name = "Col_TTL";
@@ -1079,9 +1132,9 @@ namespace XboxDownload
             // 
             // Col_RoundtripTime
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "N0";
-            this.Col_RoundtripTime.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.Format = "N0";
+            this.Col_RoundtripTime.DefaultCellStyle = dataGridViewCellStyle6;
             this.Col_RoundtripTime.HeaderText = "响应时间(ms)";
             this.Col_RoundtripTime.MinimumWidth = 8;
             this.Col_RoundtripTime.Name = "Col_RoundtripTime";
@@ -1089,9 +1142,9 @@ namespace XboxDownload
             // 
             // Col_Speed
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "N2";
-            this.Col_Speed.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle7.Format = "N2";
+            this.Col_Speed.DefaultCellStyle = dataGridViewCellStyle7;
             this.Col_Speed.HeaderText = "下载速度(MB/s)";
             this.Col_Speed.MinimumWidth = 8;
             this.Col_Speed.Name = "Col_Speed";
@@ -1186,7 +1239,7 @@ namespace XboxDownload
             "Xbox & 微软商店 (国内域名)",
             "Xbox & 微软商店 (国际域名)",
             "PlayStation 3/4/5 游戏下载",
-            "EA Desktop & Origin & 战网(Akamai)"});
+            "EA & 战网 & Epic (Akamai)"});
             this.cbImportIP.Location = new System.Drawing.Point(874, 6);
             this.cbImportIP.Name = "cbImportIP";
             this.cbImportIP.Size = new System.Drawing.Size(338, 26);
@@ -1795,8 +1848,8 @@ namespace XboxDownload
             // 
             // Col_Size
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Col_Size.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Col_Size.DefaultCellStyle = dataGridViewCellStyle8;
             this.Col_Size.HeaderText = "容量";
             this.Col_Size.MinimumWidth = 8;
             this.Col_Size.Name = "Col_Size";
@@ -2629,9 +2682,7 @@ namespace XboxDownload
             this.tsmUseIPApp,
             this.tsmUseIPXboxApp,
             this.tsmUseIPPS,
-            this.tsmUseIPEA,
-            this.tsmUseIPBattle,
-            this.tsmUseIPEABattle,
+            this.tsmUseIPEaBattleEpic,
             this.tsmUseIPHosts});
             this.tsmUseIP.Name = "tsmUseIP";
             this.tsmUseIP.Size = new System.Drawing.Size(168, 30);
@@ -2640,56 +2691,42 @@ namespace XboxDownload
             // tsmUseIPXbox
             // 
             this.tsmUseIPXbox.Name = "tsmUseIPXbox";
-            this.tsmUseIPXbox.Size = new System.Drawing.Size(285, 34);
+            this.tsmUseIPXbox.Size = new System.Drawing.Size(380, 34);
             this.tsmUseIPXbox.Text = "指定 cn 下载域名 IP";
             this.tsmUseIPXbox.Click += new System.EventHandler(this.TsmUseIP_Click);
             // 
             // tsmUseIPApp
             // 
             this.tsmUseIPApp.Name = "tsmUseIPApp";
-            this.tsmUseIPApp.Size = new System.Drawing.Size(285, 34);
+            this.tsmUseIPApp.Size = new System.Drawing.Size(380, 34);
             this.tsmUseIPApp.Text = "指定应用下载域名 IP";
             this.tsmUseIPApp.Click += new System.EventHandler(this.TsmUseIP_Click);
             // 
             // tsmUseIPXboxApp
             // 
             this.tsmUseIPXboxApp.Name = "tsmUseIPXboxApp";
-            this.tsmUseIPXboxApp.Size = new System.Drawing.Size(285, 34);
+            this.tsmUseIPXboxApp.Size = new System.Drawing.Size(380, 34);
             this.tsmUseIPXboxApp.Text = "同时指定两者 (推荐)";
             this.tsmUseIPXboxApp.Click += new System.EventHandler(this.TsmUseIP_Click);
             // 
             // tsmUseIPPS
             // 
             this.tsmUseIPPS.Name = "tsmUseIPPS";
-            this.tsmUseIPPS.Size = new System.Drawing.Size(285, 34);
+            this.tsmUseIPPS.Size = new System.Drawing.Size(380, 34);
             this.tsmUseIPPS.Text = "指定 PSN 下载域名 IP";
             this.tsmUseIPPS.Click += new System.EventHandler(this.TsmUseIPPS_Click);
             // 
-            // tsmUseIPEA
+            // tsmUseIPEaBattleEpic
             // 
-            this.tsmUseIPEA.Name = "tsmUseIPEA";
-            this.tsmUseIPEA.Size = new System.Drawing.Size(285, 34);
-            this.tsmUseIPEA.Text = "指定 EA 下载域名 IP";
-            this.tsmUseIPEA.Click += new System.EventHandler(this.TsmUseIPEA_Click);
-            // 
-            // tsmUseIPBattle
-            // 
-            this.tsmUseIPBattle.Name = "tsmUseIPBattle";
-            this.tsmUseIPBattle.Size = new System.Drawing.Size(285, 34);
-            this.tsmUseIPBattle.Text = "指定战网下载域名IP";
-            this.tsmUseIPBattle.Click += new System.EventHandler(this.TsmUseIPBattle_Click);
-            // 
-            // tsmUseIPEABattle
-            // 
-            this.tsmUseIPEABattle.Name = "tsmUseIPEABattle";
-            this.tsmUseIPEABattle.Size = new System.Drawing.Size(285, 34);
-            this.tsmUseIPEABattle.Text = "同时指定两者";
-            this.tsmUseIPEABattle.Click += new System.EventHandler(this.TsmUseIPEABattle_Click);
+            this.tsmUseIPEaBattleEpic.Name = "tsmUseIPEaBattleEpic";
+            this.tsmUseIPEaBattleEpic.Size = new System.Drawing.Size(380, 34);
+            this.tsmUseIPEaBattleEpic.Text = "指定 EA、战网、Epic 下载域名 IP";
+            this.tsmUseIPEaBattleEpic.Click += new System.EventHandler(this.TsmUseIPEaBattleEpic_Click);
             // 
             // tsmUseIPHosts
             // 
             this.tsmUseIPHosts.Name = "tsmUseIPHosts";
-            this.tsmUseIPHosts.Size = new System.Drawing.Size(285, 34);
+            this.tsmUseIPHosts.Size = new System.Drawing.Size(380, 34);
             this.tsmUseIPHosts.Text = "写入系统 Hosts 文件";
             this.tsmUseIPHosts.Click += new System.EventHandler(this.TsmUseIPHosts_Click);
             // 
@@ -2992,7 +3029,7 @@ namespace XboxDownload
         public System.Windows.Forms.TextBox tbEAIP;
         private System.Windows.Forms.Label labelEA;
         private System.Windows.Forms.Label label52;
-        private System.Windows.Forms.ToolStripMenuItem tsmUseIPEA;
+        private System.Windows.Forms.ToolStripMenuItem tsmUseIPEaBattleEpic;
         private System.Windows.Forms.GroupBox gpEACdn;
         private System.Windows.Forms.RadioButton rbEACdn3;
         private System.Windows.Forms.RadioButton rbEACdn2;
@@ -3039,11 +3076,14 @@ namespace XboxDownload
         private System.Windows.Forms.Label label54;
         public System.Windows.Forms.TextBox tbBattleIP;
         private System.Windows.Forms.Label labelBattle;
-        private System.Windows.Forms.ToolStripMenuItem tsmUseIPBattle;
         private System.Windows.Forms.LinkLabel linkEaOriginRepair;
-        private System.Windows.Forms.ToolStripMenuItem tsmUseIPEABattle;
         private System.Windows.Forms.ToolStripMenuItem tsmTeaching;
         private System.Windows.Forms.ToolStripMenuItem tsmTeaching1;
+        private System.Windows.Forms.Label label53;
+        public System.Windows.Forms.TextBox tbEpicIP;
+        private System.Windows.Forms.Label labelEpic;
+        private System.Windows.Forms.CheckBox ckbEpicStore;
+        private System.Windows.Forms.CheckBox ckbEpicCDN;
     }
 }
 

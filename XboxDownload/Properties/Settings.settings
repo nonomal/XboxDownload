@@ -2,7 +2,7 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="XboxDownload.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-  	<Setting Name="NextUpdate" Type="System.Int64" Scope="User">
+    <Setting Name="NextUpdate" Type="System.Int64" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="DnsIP" Type="System.String" Scope="User">
@@ -35,6 +35,12 @@
     <Setting Name="BattleCDN" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="EpicIP" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="EpicCDN" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
     <Setting Name="Redirect" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
@@ -63,6 +69,9 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="BattleStore" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="EpicStore" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="LocalIP" Type="System.String" Scope="User">

@@ -187,6 +187,25 @@ namespace XboxDownload
                     }
                 });
             }
+            Byte[] epicIP = null;
+            if (!string.IsNullOrEmpty(Properties.Settings.Default.EpicIP))
+            {
+                string[] ips = Properties.Settings.Default.EpicIP.Split('.');
+                epicIP = new byte[4] { byte.Parse(ips[0]), byte.Parse(ips[1]), byte.Parse(ips[2]), byte.Parse(ips[3]) };
+            }
+            else
+            {
+                Task.Run(() =>
+                {
+                    string ip = ClassWeb.HostToIP("epicgames-download1.akamaized.net", Properties.Settings.Default.DnsIP);
+                    if (!string.IsNullOrEmpty(ip))
+                    {
+                        if (Form1.bServiceFlag) parentForm.SetTextBox(parentForm.tbEpicIP, ip);
+                        string[] ips = ip.Split('.');
+                        epicIP = new byte[4] { byte.Parse(ips[0]), byte.Parse(ips[1]), byte.Parse(ips[2]), byte.Parse(ips[3]) };
+                    }
+                });
+            }
             while (Form1.bServiceFlag)
             {
                 try
@@ -243,6 +262,10 @@ namespace XboxDownload
                                 case "blzddist2-a.akamaihd.net":
                                 case "blzddist3-a.akamaihd.net":
                                     ip = battleIP;
+                                    argb = 0x008000;
+                                    break;
+                                case "epicgames-download1.akamaized.net":
+                                    ip = epicIP;
                                     argb = 0x008000;
                                     break;
                                 default:

@@ -70,6 +70,8 @@ namespace XboxDownload
             ckbEACDN.Checked = Properties.Settings.Default.EACDN;
             tbBattleIP.Text = Properties.Settings.Default.BattleIP;
             ckbBattleCDN.Checked = Properties.Settings.Default.BattleCDN;
+            tbEpicIP.Text = Properties.Settings.Default.EpicIP;
+            ckbEpicCDN.Checked = Properties.Settings.Default.EpicCDN;
             ckbEAProtocol.Checked = Properties.Settings.Default.EAProtocol;
             ckbRedirect.Checked = Properties.Settings.Default.Redirect;
             ckbTruncation.Checked = Properties.Settings.Default.Truncation;
@@ -83,6 +85,7 @@ namespace XboxDownload
             ckbMicrosoftStore.Checked = Properties.Settings.Default.MicrosoftStore;
             ckbEAStore.Checked = Properties.Settings.Default.EAStore;
             ckbBattleStore.Checked = Properties.Settings.Default.BattleStore;
+            ckbEpicStore.Checked = Properties.Settings.Default.EpicStore;
 
             IPAddress[] ipAddresses = Array.FindAll(Dns.GetHostEntry(string.Empty).AddressList, a => a.AddressFamily == AddressFamily.InterNetwork);
             cbLocalIP.Items.AddRange(ipAddresses);
@@ -191,7 +194,8 @@ namespace XboxDownload
             toolTip1.SetToolTip(this.labelApp, "包括以下应用下载域名\ndl.delivery.mp.microsoft.com\ntlu.dl.delivery.mp.microsoft.com");
             toolTip1.SetToolTip(this.labelPS, "包括以下游戏下载域名\ngst.prod.dl.playstation.net\ngs2.ww.prod.dl.playstation.net\nzeus.dl.playstation.net\nares.dl.playstation.net");
             toolTip1.SetToolTip(this.labelEA, "包括以下游戏下载域名\norigin-a.akamaihd.net");
-            toolTip1.SetToolTip(this.labelBattle, "包括以下游戏下载域名\nblzddist1-a.akamaihd.net"); 
+            toolTip1.SetToolTip(this.labelBattle, "包括以下游戏下载域名\nblzddist1-a.akamaihd.net\nblzddist2-a.akamaihd.net\nblzddist3-a.akamaihd.net");
+            toolTip1.SetToolTip(this.labelEpic, "包括以下游戏下载域名\nepicgames-download1.akamaized.net");
 
             if (DateTime.Compare(DateTime.Now, new DateTime(Properties.Settings.Default.NextUpdate)) >= 0)
             {
@@ -347,7 +351,7 @@ namespace XboxDownload
             if (bServiceFlag)
             {
                 bServiceFlag = false;
-                if (Properties.Settings.Default.MicrosoftStore || Properties.Settings.Default.EAStore || Properties.Settings.Default.BattleStore) WriteHost(false);
+                WriteHost(false);
                 if (string.IsNullOrEmpty(Properties.Settings.Default.DnsIP)) tbDnsIP.Clear();
                 if (string.IsNullOrEmpty(Properties.Settings.Default.ComIP)) tbComIP.Clear();
                 if (string.IsNullOrEmpty(Properties.Settings.Default.CnIP)) tbCnIP.Clear();
@@ -355,9 +359,10 @@ namespace XboxDownload
                 if (string.IsNullOrEmpty(Properties.Settings.Default.PSIP)) tbPSIP.Clear();
                 if (string.IsNullOrEmpty(Properties.Settings.Default.EAIP)) tbEAIP.Clear();
                 if (string.IsNullOrEmpty(Properties.Settings.Default.BattleIP)) tbBattleIP.Clear();
+                if (string.IsNullOrEmpty(Properties.Settings.Default.EpicIP)) tbEpicIP.Clear(); 
                 pictureBox1.Image = Properties.Resources.Xbox1;
                 butStart.Text = "开始监听";
-                tbDnsIP.Enabled = tbComIP.Enabled = tbCnIP.Enabled = tbAppIP.Enabled = tbPSIP.Enabled = tbEAIP.Enabled = ckbEACDN.Enabled = ckbEAProtocol.Enabled = tbBattleIP.Enabled = ckbBattleCDN.Enabled = ckbRedirect.Enabled = ckbTruncation.Enabled = ckbLocalUpload.Enabled = tbLocalPath.Enabled = butBrowse.Enabled = cbListenIP.Enabled = ckbDnsService.Enabled = ckbHttpService.Enabled = ckbMicrosoftStore.Enabled = ckbEAStore.Enabled = ckbBattleStore.Enabled = cbLocalIP.Enabled = true;
+                tbDnsIP.Enabled = tbComIP.Enabled = tbCnIP.Enabled = tbAppIP.Enabled = tbPSIP.Enabled = tbEAIP.Enabled = ckbEACDN.Enabled = ckbEAProtocol.Enabled = tbBattleIP.Enabled = ckbBattleCDN.Enabled = tbEpicIP.Enabled = ckbEpicCDN.Enabled = ckbRedirect.Enabled = ckbTruncation.Enabled = ckbLocalUpload.Enabled = tbLocalPath.Enabled = butBrowse.Enabled = cbListenIP.Enabled = ckbDnsService.Enabled = ckbHttpService.Enabled = ckbMicrosoftStore.Enabled = ckbEAStore.Enabled = ckbBattleStore.Enabled = ckbEpicStore.Enabled = cbLocalIP.Enabled = true;
                 linkTestDns.Enabled = linkEADesktopRecovery.Enabled = false;
                 dnsListen.Close();
                 httpListen.Close();
@@ -461,7 +466,7 @@ namespace XboxDownload
                     }
                     else
                     {
-                        MessageBox.Show("指定 EA 下载域名 IP 不正确", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("指定 PSN 下载域名 IP 不正确", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         tbPSIP.Focus();
                         return;
                     }
@@ -494,6 +499,21 @@ namespace XboxDownload
                         return;
                     }
                 }
+                string epicIP = string.Empty;
+                if (!string.IsNullOrEmpty(tbEpicIP.Text.Trim()))
+                {
+                    if (IPAddress.TryParse(tbEpicIP.Text, out IPAddress ipAddress))
+                    {
+                        epicIP = ipAddress.ToString();
+                    }
+                    else
+                    {
+                        MessageBox.Show("指定 Epic 下载域名IP 不正确", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        tbEpicIP.Focus();
+                        return;
+                    }
+                }
+                
                 Properties.Settings.Default.DnsIP = dnsIP;
                 Properties.Settings.Default.ComIP = comIP;
                 Properties.Settings.Default.CnIP = cnIP;
@@ -504,6 +524,8 @@ namespace XboxDownload
                 Properties.Settings.Default.EAProtocol = ckbEAProtocol.Checked;
                 Properties.Settings.Default.BattleIP = battleIP;
                 Properties.Settings.Default.BattleCDN = ckbBattleCDN.Checked;
+                Properties.Settings.Default.EpicIP = epicIP;
+                Properties.Settings.Default.EpicCDN = ckbEpicCDN.Checked;
                 Properties.Settings.Default.Redirect = ckbRedirect.Checked;
                 Properties.Settings.Default.Truncation = ckbTruncation.Checked;
                 Properties.Settings.Default.LocalUpload = ckbLocalUpload.Checked;
@@ -514,6 +536,7 @@ namespace XboxDownload
                 Properties.Settings.Default.MicrosoftStore = ckbMicrosoftStore.Checked;
                 Properties.Settings.Default.EAStore = ckbEAStore.Checked;
                 Properties.Settings.Default.BattleStore = ckbBattleStore.Checked;
+                Properties.Settings.Default.EpicStore = ckbEpicStore.Checked;
                 Properties.Settings.Default.Save();
 
                 string resultInfo = string.Empty;
@@ -615,11 +638,11 @@ namespace XboxDownload
 
                 bServiceFlag = true;
                 pictureBox1.Image = Properties.Resources.Xbox2;
-                tbDnsIP.Enabled = tbComIP.Enabled = tbCnIP.Enabled = tbAppIP.Enabled = tbPSIP.Enabled = tbEAIP.Enabled = ckbEACDN.Enabled = ckbEAProtocol.Enabled = tbBattleIP.Enabled = ckbBattleCDN.Enabled = ckbRedirect.Enabled = ckbTruncation.Enabled = ckbLocalUpload.Enabled = tbLocalPath.Enabled = butBrowse.Enabled = cbListenIP.Enabled = ckbDnsService.Enabled = ckbHttpService.Enabled = ckbMicrosoftStore.Enabled = ckbEAStore.Enabled = ckbBattleStore.Enabled = cbLocalIP.Enabled = false;
+                tbDnsIP.Enabled = tbComIP.Enabled = tbCnIP.Enabled = tbAppIP.Enabled = tbPSIP.Enabled = tbEAIP.Enabled = ckbEACDN.Enabled = ckbEAProtocol.Enabled = tbBattleIP.Enabled = ckbBattleCDN.Enabled = tbEpicIP.Enabled = ckbEpicCDN.Enabled = ckbRedirect.Enabled = ckbTruncation.Enabled = ckbLocalUpload.Enabled = tbLocalPath.Enabled = butBrowse.Enabled = cbListenIP.Enabled = ckbDnsService.Enabled = ckbHttpService.Enabled = ckbMicrosoftStore.Enabled = ckbEAStore.Enabled = ckbBattleStore.Enabled = ckbEpicStore.Enabled = cbLocalIP.Enabled = false;
                 butStart.Text = "停止监听";
                 Program.SystemSleep.PreventForCurrentThread(false);
 
-                if (Properties.Settings.Default.MicrosoftStore || Properties.Settings.Default.EAStore || Properties.Settings.Default.BattleStore) WriteHost(true);
+                WriteHost(true);
                 if (Properties.Settings.Default.DnsService)
                 {
                     linkTestDns.Enabled = true;
@@ -652,6 +675,8 @@ namespace XboxDownload
 
         private void WriteHost(bool add)
         {
+            if (!(Properties.Settings.Default.MicrosoftStore || Properties.Settings.Default.EAStore || Properties.Settings.Default.BattleStore || Properties.Settings.Default.EpicStore)) return;
+
             string sHostsPath = Environment.SystemDirectory + "\\drivers\\etc\\hosts";
             try
             {
@@ -704,14 +729,17 @@ namespace XboxDownload
                             sb.AppendLine(Properties.Settings.Default.AppIP + " dl.delivery.mp.microsoft.com");
                             sb.AppendLine(Properties.Settings.Default.AppIP + " tlu.dl.delivery.mp.microsoft.com");
                         }
-                        RestartService("DoSvc");
+                        ThreadPool.QueueUserWorkItem(delegate { RestartService("DoSvc"); });
                     }
                     if (Properties.Settings.Default.EAStore)
                     {
-                        sb.AppendLine(Properties.Settings.Default.LocalIP + " api1.origin.com");
-                        sb.AppendLine(Properties.Settings.Default.LocalIP + " api2.origin.com");
-                        sb.AppendLine(Properties.Settings.Default.LocalIP + " api3.origin.com");
-                        sb.AppendLine(Properties.Settings.Default.LocalIP + " api4.origin.com");
+                        if (Properties.Settings.Default.EACDN)
+                        {
+                            sb.AppendLine(Properties.Settings.Default.LocalIP + " api1.origin.com");
+                            sb.AppendLine(Properties.Settings.Default.LocalIP + " api2.origin.com");
+                            sb.AppendLine(Properties.Settings.Default.LocalIP + " api3.origin.com");
+                            sb.AppendLine(Properties.Settings.Default.LocalIP + " api4.origin.com");
+                        }
                         if (!string.IsNullOrEmpty(Properties.Settings.Default.EAIP))
                         {
                             sb.AppendLine(Properties.Settings.Default.EAIP + " origin-a.akamaihd.net");
@@ -719,14 +747,34 @@ namespace XboxDownload
                     }
                     if (Properties.Settings.Default.BattleStore)
                     {
-                        sb.AppendLine(Properties.Settings.Default.LocalIP + " us.cdn.blizzard.com");
-                        sb.AppendLine(Properties.Settings.Default.LocalIP + " eu.cdn.blizzard.com");
-                        sb.AppendLine(Properties.Settings.Default.LocalIP + " kr.cdn.blizzard.com");
-                        sb.AppendLine(Properties.Settings.Default.LocalIP + " level3.blizzard.com");
-                        sb.AppendLine(Properties.Settings.Default.LocalIP + " blizzard.gcdn.cloudn.co.kr");
+                        if (Properties.Settings.Default.BattleCDN)
+                        {
+                            sb.AppendLine(Properties.Settings.Default.LocalIP + " us.cdn.blizzard.com");
+                            sb.AppendLine(Properties.Settings.Default.LocalIP + " eu.cdn.blizzard.com");
+                            sb.AppendLine(Properties.Settings.Default.LocalIP + " kr.cdn.blizzard.com");
+                            sb.AppendLine(Properties.Settings.Default.LocalIP + " level3.blizzard.com");
+                            sb.AppendLine(Properties.Settings.Default.LocalIP + " blizzard.gcdn.cloudn.co.kr");
+                        }
                         if (!string.IsNullOrEmpty(Properties.Settings.Default.BattleIP))
                         {
                             sb.AppendLine(Properties.Settings.Default.BattleIP + " blzddist1-a.akamaihd.net");
+                            sb.AppendLine(Properties.Settings.Default.BattleIP + " blzddist2-a.akamaihd.net");
+                            sb.AppendLine(Properties.Settings.Default.BattleIP + " blzddist3-a.akamaihd.net");
+                        }
+                    }
+                    if (Properties.Settings.Default.EpicStore)
+                    {
+                        if (Properties.Settings.Default.EpicCDN)
+                        {
+                            sb.AppendLine(Properties.Settings.Default.LocalIP + " download.epicgames.com");
+                            sb.AppendLine(Properties.Settings.Default.LocalIP + " download2.epicgames.com");
+                            sb.AppendLine(Properties.Settings.Default.LocalIP + " download3.epicgames.com");
+                            sb.AppendLine(Properties.Settings.Default.LocalIP + " download4.epicgames.com");
+                            sb.AppendLine(Properties.Settings.Default.LocalIP + " fastly-download.epicgames.com");
+                        }
+                        if (!string.IsNullOrEmpty(Properties.Settings.Default.EpicIP))
+                        {
+                            sb.AppendLine(Properties.Settings.Default.EpicIP + " epicgames-download1.akamaized.net");
                         }
                     }
                     foreach (var host in dicHost)
@@ -753,12 +801,12 @@ namespace XboxDownload
 
         private void RestartService(string servicename)
         {
-            Task.Run(() =>
+            ServiceController[] services = ServiceController.GetServices();
+            foreach (ServiceController service in services)
             {
-                ServiceController[] services = ServiceController.GetServices();
-                foreach (ServiceController service in services)
+                if (service.ServiceName.Equals(servicename))
                 {
-                    if (service.ServiceName.Equals(servicename))
+                    try
                     {
                         if (service.Status == ServiceControllerStatus.Running)
                         {
@@ -767,10 +815,11 @@ namespace XboxDownload
                         }
                         service.Start();
                         service.WaitForStatus(ServiceControllerStatus.Running);
-                        break;
                     }
+                    catch { }
+                    break;
                 }
-            });
+            }
         }
 
         private void LvLog_MouseClick(object sender, MouseEventArgs e)
@@ -888,7 +937,7 @@ namespace XboxDownload
                     tsmUseIPXbox.Text = "指定 com 下载域名 IP";
                     tsmUseIPXboxApp.Text = "同时指定两者";
                     tsmUseIPXbox.Visible = tsmUseIPApp.Visible = tsmUseIPXboxApp.Visible = true;
-                    tsmUseIPPS.Visible = tsmUseIPEA.Visible = tsmUseIPBattle.Visible = tsmUseIPEABattle.Visible = false;
+                    tsmUseIPPS.Visible = tsmUseIPEaBattleEpic.Visible = false;
                     break;
                 case "assets1.xboxlive.cn":
                 case "assets2.xboxlive.cn":
@@ -899,22 +948,22 @@ namespace XboxDownload
                     tsmUseIPXbox.Text = "指定 cn 下载域名 IP";
                     tsmUseIPXboxApp.Text = "同时指定两者 (推荐)";
                     tsmUseIPXbox.Visible = tsmUseIPApp.Visible = tsmUseIPXboxApp.Visible = true;
-                    tsmUseIPPS.Visible = tsmUseIPEA.Visible = tsmUseIPBattle.Visible = tsmUseIPEABattle.Visible = false;
+                    tsmUseIPPS.Visible = tsmUseIPEaBattleEpic.Visible = false;
                     break;
                 case "gst.prod.dl.playstation.net":
                 case "gs2.ww.prod.dl.playstation.net":
                 case "zeus.dl.playstation.net":
                 case "ares.dl.playstation.net":
-                    tsmUseIPXbox.Visible = tsmUseIPApp.Visible = tsmUseIPXboxApp.Visible = tsmUseIPEA.Visible = tsmUseIPBattle.Visible = tsmUseIPEABattle.Visible = false;
+                    tsmUseIPXbox.Visible = tsmUseIPApp.Visible = tsmUseIPXboxApp.Visible = tsmUseIPEaBattleEpic.Visible = false;
                     tsmUseIPPS.Visible = true;
                     break;
                 case "origin-a.akamaihd.net":
                 case "blzddist1-a.akamaihd.net":
                     tsmUseIPXbox.Visible = tsmUseIPApp.Visible = tsmUseIPXboxApp.Visible = tsmUseIPPS.Visible = false;
-                    tsmUseIPEA.Visible = tsmUseIPBattle.Visible = tsmUseIPEABattle.Visible = true;
+                    tsmUseIPEaBattleEpic.Visible = true;
                     break;
                 default:
-                    tsmUseIPXbox.Visible = tsmUseIPApp.Visible = tsmUseIPXboxApp.Visible = tsmUseIPPS.Visible = tsmUseIPEA.Visible = tsmUseIPBattle.Visible = tsmUseIPEABattle.Visible = false;
+                    tsmUseIPXbox.Visible = tsmUseIPApp.Visible = tsmUseIPXboxApp.Visible = tsmUseIPPS.Visible = tsmUseIPEaBattleEpic.Visible = false;
                     break;
             }
             contextMenuStrip1.Show(MousePosition.X, MousePosition.Y);
@@ -994,7 +1043,7 @@ namespace XboxDownload
             tbPSIP.Focus();
         }
 
-        private void TsmUseIPEA_Click(object sender, EventArgs e)
+        private void TsmUseIPEaBattleEpic_Click(object sender, EventArgs e)
         {
             if (bServiceFlag)
             {
@@ -1003,23 +1052,9 @@ namespace XboxDownload
             }
             if (dgvIpList.SelectedRows.Count != 1) return;
             DataGridViewRow dgvr = dgvIpList.SelectedRows[0];
-            tbEAIP.Text = dgvr.Cells["Col_IP"].Value.ToString();
+            tbEAIP.Text = tbBattleIP.Text = tbEpicIP.Text = dgvr.Cells["Col_IP"].Value.ToString();
             tabControl1.SelectedIndex = 0;
             tbEAIP.Focus();
-        }
-
-        private void TsmUseIPBattle_Click(object sender, EventArgs e)
-        {
-            if (bServiceFlag)
-            {
-                MessageBox.Show("请先停止监听后再设置。", "使用指定IP", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (dgvIpList.SelectedRows.Count != 1) return;
-            DataGridViewRow dgvr = dgvIpList.SelectedRows[0];
-            tbBattleIP.Text = dgvr.Cells["Col_IP"].Value.ToString();
-            tabControl1.SelectedIndex = 0;
-            tbBattleIP.Focus();
         }
 
         private void TsmUseIPEABattle_Click(object sender, EventArgs e)
@@ -1086,7 +1121,7 @@ namespace XboxDownload
                         sb.AppendLine(ip + " xvcf1.xboxlive.com # Xbox下载助手");
                         sb.AppendLine(ip + " xvcf2.xboxlive.com # Xbox下载助手");
                         msg = "系统Hosts文件写入成功，以下规则已写入系统Hosts文件\n\n" + sb.ToString();
-                        RestartService("DoSvc");
+                        ThreadPool.QueueUserWorkItem(delegate { RestartService("DoSvc"); });
                         break;
                     case "assets1.xboxlive.cn":
                     case "assets2.xboxlive.cn":
@@ -1105,7 +1140,7 @@ namespace XboxDownload
                         sb.AppendLine(ip + " dl.delivery.mp.microsoft.com # Xbox下载助手");
                         sb.AppendLine(ip + " tlu.dl.delivery.mp.microsoft.com # Xbox下载助手");
                         msg = "系统Hosts文件写入成功，以下规则已写入系统Hosts文件\n\n" + sb.ToString();
-                        RestartService("DoSvc");
+                        ThreadPool.QueueUserWorkItem(delegate { RestartService("DoSvc"); });
                         break;
                     case "gst.prod.dl.playstation.net":
                     case "gs2.ww.prod.dl.playstation.net":
@@ -1120,9 +1155,11 @@ namespace XboxDownload
                         break;
                     case "origin-a.akamaihd.net":
                     case "blzddist1-a.akamaihd.net":
-                        sHosts = Regex.Replace(sHosts, @"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\s+(origin-a|blzddist1-a)\.akamaihd\.net\s+# Xbox下载助手\r\n", "");
+                    case "epicgames-download1.akamaized.net":
+                        sHosts = Regex.Replace(sHosts, @"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\s+(origin-a|blzddist1-a|epicgames-download1)\.akamaihd\.net\s+# Xbox下载助手\r\n", "");
                         sb.AppendLine(ip + " origin-a.akamaihd.net # Xbox下载助手");
                         sb.AppendLine(ip + " blzddist1-a.akamaihd.net # Xbox下载助手");
+                        sb.AppendLine(ip + " epicgames-download1.akamaized.net # Xbox下载助手");
                         msg = "系统Hosts文件写入成功，以下规则已写入系统Hosts文件\n\n" + sb.ToString() + "\nEA Desktop & Origin CDN服务器使用 Akamai 可以直接加速，不需要启动下载助手监听。Origin 的用户可以在“工具 -> EA Origin 切换CDN服务器”中切换使用 Akamai，EA Desktop 暂时不能切换，如果你的 EA Desktop 不是使用Akamai CDN服务器，此方法无效，请使用监听方式加速。\n\n暴雪战网只能用监听方式加速。";
                         break;
                     default:
@@ -1236,15 +1273,18 @@ namespace XboxDownload
                     break;
                 case "origin-a.akamaihd.net":
                 case "blzddist1-a.akamaihd.net":
+                case "epicgames-download1.akamaized.net":
                     if (tsmi.Name == "tsmDNSmasp")
                     {
                         sb.AppendLine("address=/origin-a.akamaihd.net/" + ip);
                         sb.AppendLine("address=/blzddist1-a.akamaihd.net/" + ip);
+                        sb.AppendLine("address=/epicgames-download1.akamaized.net/" + ip);
                     }
                     else
                     {
                         sb.AppendLine(ip + " origin-a.akamaihd.net");
                         sb.AppendLine(ip + " blzddist1-a.akamaihd.net");
+                        sb.AppendLine(ip + " epicgames-download1.akamaized.net");
                     }
                     break;
                 default:
@@ -1537,7 +1577,7 @@ namespace XboxDownload
                     {
                         LinkLabel lb1 = new LinkLabel()
                         {
-                            Tag = "http://assets1.xboxlive.com/Z/61044dc8-2893-4092-949a-9d6a59fd9c17/0698b936-d300-4451-b9a0-0be0514bbbe5/1.3249.19634.0.e10dc476-276f-4b97-bbc3-9d4f852797dc/Microsoft.254428597CFE2_1.3249.19634.0_neutral__8wekyb3d8bbwe_xs.xvc",
+                            Tag = "http://assets1.xboxlive.com/Z/47d17c78-f0f5-4b81-8946-e0225364f880/0698b936-d300-4451-b9a0-0be0514bbbe5/1.3266.27842.0.5d961733-e572-48e0-8976-787972bbbb7f/Microsoft.254428597CFE2_1.3266.27842.0_neutral__8wekyb3d8bbwe_xs.xvc",
                             Text = "光环:无限",
                             AutoSize = true,
                             Parent = this.flpTestUrl
@@ -1570,7 +1610,7 @@ namespace XboxDownload
                     {
                         LinkLabel lb1 = new LinkLabel()
                         {
-                            Tag = "http://assets1.xboxlive.cn/Z/61044dc8-2893-4092-949a-9d6a59fd9c17/0698b936-d300-4451-b9a0-0be0514bbbe5/1.3249.19634.0.e10dc476-276f-4b97-bbc3-9d4f852797dc/Microsoft.254428597CFE2_1.3249.19634.0_neutral__8wekyb3d8bbwe_xs.xvc",
+                            Tag = "http://assets1.xboxlive.cn/Z/47d17c78-f0f5-4b81-8946-e0225364f880/0698b936-d300-4451-b9a0-0be0514bbbe5/1.3266.27842.0.5d961733-e572-48e0-8976-787972bbbb7f/Microsoft.254428597CFE2_1.3266.27842.0_neutral__8wekyb3d8bbwe_xs.xvc",
                             Text = "光环:无限",
                             AutoSize = true,
                             Parent = this.flpTestUrl
@@ -1630,7 +1670,7 @@ namespace XboxDownload
                     {
                         LinkLabel lb1 = new LinkLabel()
                         {
-                            Tag = "https://origin-a.akamaihd.net/EA-Desktop-Client-Download/installer-releases/EAapp-12.0.170.5061-736.msi",
+                            Tag = "https://origin-a.akamaihd.net/EA-Desktop-Client-Download/installer-releases/EAapp-12.0.171.5063-737.msi",
                             Text = "EA Desktop",
                             AutoSize = true,
                             Parent = this.flpTestUrl
@@ -1861,7 +1901,7 @@ namespace XboxDownload
                 File.Delete(hostPath);
             AddHost();
 
-            if (bServiceFlag && (Properties.Settings.Default.MicrosoftStore || Properties.Settings.Default.EAStore)) WriteHost(true);
+            if (bServiceFlag) WriteHost(true);
         }
 
         private void ButHostReset_Click(object sender, EventArgs e)

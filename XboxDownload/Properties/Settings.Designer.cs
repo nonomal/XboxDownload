@@ -25,6 +25,18 @@ namespace XboxDownload.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public long NextUpdate {
+            get {
+                return ((long)(this["NextUpdate"]));
+            }
+            set {
+                this["NextUpdate"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string DnsIP {
             get {
@@ -140,6 +152,30 @@ namespace XboxDownload.Properties {
             }
             set {
                 this["BattleCDN"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string EpicIP {
+            get {
+                return ((string)(this["EpicIP"]));
+            }
+            set {
+                this["EpicIP"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool EpicCDN {
+            get {
+                return ((bool)(this["EpicCDN"]));
+            }
+            set {
+                this["EpicCDN"] = value;
             }
         }
         
@@ -265,6 +301,18 @@ namespace XboxDownload.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool EpicStore {
+            get {
+                return ((bool)(this["EpicStore"]));
+            }
+            set {
+                this["EpicStore"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string LocalIP {
             get {
@@ -272,18 +320,6 @@ namespace XboxDownload.Properties {
             }
             set {
                 this["LocalIP"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public long NextUpdate {
-            get {
-                return ((long)(this["NextUpdate"]));
-            }
-            set {
-                this["NextUpdate"] = value;
             }
         }
     }

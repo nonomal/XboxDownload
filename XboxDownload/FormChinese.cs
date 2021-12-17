@@ -91,8 +91,6 @@ namespace XboxDownload
             DataGridViewRow dgvr = dgvGames.Rows[e.RowIndex];
             dgvr.Selected = true;
             contextMenuStrip1.Show(MousePosition.X, MousePosition.Y);
-            //string url = dgvr.Cells["Col_Url"].Value.ToString();
-            //Clipboard.SetDataObject(url);
         }
 
         private void TsmiCopyURL_Click(object sender, EventArgs e)

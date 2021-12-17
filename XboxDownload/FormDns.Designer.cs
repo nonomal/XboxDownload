@@ -51,10 +51,10 @@ namespace XboxDownload
             // butTest
             // 
             this.butTest.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.butTest.Location = new System.Drawing.Point(406, 18);
+            this.butTest.Location = new System.Drawing.Point(419, 18);
             this.butTest.Margin = new System.Windows.Forms.Padding(5);
             this.butTest.Name = "butTest";
-            this.butTest.Size = new System.Drawing.Size(164, 35);
+            this.butTest.Size = new System.Drawing.Size(151, 35);
             this.butTest.TabIndex = 6;
             this.butTest.Text = "测试";
             this.butTest.UseVisualStyleBackColor = true;
@@ -71,11 +71,12 @@ namespace XboxDownload
             "gst.prod.dl.playstation.net",
             "origin-a.akamaihd.net",
             "blzddist1-a.akamaihd.net",
+            "epicgames-download1.akamaized.net",
             "www.baidu.com"});
             this.cbDomainName.Location = new System.Drawing.Point(74, 21);
             this.cbDomainName.Margin = new System.Windows.Forms.Padding(5);
             this.cbDomainName.Name = "cbDomainName";
-            this.cbDomainName.Size = new System.Drawing.Size(322, 26);
+            this.cbDomainName.Size = new System.Drawing.Size(335, 26);
             this.cbDomainName.TabIndex = 5;
             this.cbDomainName.TabStop = false;
             this.cbDomainName.Validating += new System.ComponentModel.CancelEventHandler(this.CbDomainName_Validating);

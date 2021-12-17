@@ -38,7 +38,7 @@ namespace XboxDownload
                 "assets1.xboxlive.cn", "assets2.xboxlive.cn", "dlassets.xboxlive.cn", "dlassets2.xboxlive.cn", "d1.xboxlive.cn", "d2.xboxlive.cn", 
                 "assets1.xboxlive.com", "assets2.xboxlive.com", "dlassets.xboxlive.com", "dlassets2.xboxlive.com", "d1.xboxlive.com", "d2.xboxlive.com", "xvcf1.xboxlive.com", "xvcf2.xboxlive.com", 
                 "gst.prod.dl.playstation.net", "gs2.ww.prod.dl.playstation.net", "zeus.dl.playstation.net", "ares.dl.playstation.net", 
-                "origin-a.akamaihd.net", "blzddist1-a.akamaihd.net"
+                "origin-a.akamaihd.net", "blzddist1-a.akamaihd.net", "epicgames-download1.akamaihd.net"
             };
             foreach (string host in hosts)
             {
