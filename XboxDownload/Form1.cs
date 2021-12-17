@@ -2550,6 +2550,11 @@ namespace XboxDownload
                         lb.Links.Add(0, item.Value[1].Length, keyLinknowgame);
                         lb.LinkClicked += new LinkLabelLinkClickedEventHandler(this.LinkGameWithGold_LinkClicked);
                     }
+                    if (flpGameWithGold.VerticalScroll.Visible)
+                    {
+                        groupBox7.Height = (int)(groupBox7.Height + 30 * Form1.dpixRatio);
+                        flpGameWithGold.Height = (int)(flpGameWithGold.Height + 30 * Form1.dpixRatio);
+                    }
                 }));
             }
         }
@@ -2959,7 +2964,7 @@ namespace XboxDownload
 
         private void LinkAppxAdd_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            tabControl1.SelectedIndex = 6;
+            tabControl1.SelectedTab = tabPage7;
             tbAppxFilePath.Focus();
         }
         #endregion

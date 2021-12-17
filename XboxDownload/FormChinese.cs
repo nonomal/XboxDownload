@@ -85,6 +85,21 @@ namespace XboxDownload
             }
         }
 
+        private void DgvGames_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.Button != MouseButtons.Right) return;
+            DataGridViewRow dgvr = dgvGames.Rows[e.RowIndex];
+            dgvr.Selected = true;
+            contextMenuStrip1.Show(MousePosition.X, MousePosition.Y);
+            //string url = dgvr.Cells["Col_Url"].Value.ToString();
+            //Clipboard.SetDataObject(url);
+        }
+
+        private void TsmiCopyURL_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetDataObject(dgvGames.SelectedRows[0].Cells["Col_Url"].Value.ToString());
+        }
+
         private void DgvGames_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
             DataGridView dgv = (DataGridView)sender;

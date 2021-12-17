@@ -29,15 +29,19 @@ namespace XboxDownload
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dgvGames = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmiCopyURL = new System.Windows.Forms.ToolStripMenuItem();
             this.Col_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Col_Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Col_ProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Col_Url = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGames)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvGames
@@ -60,6 +64,7 @@ namespace XboxDownload
             this.dgvGames.Size = new System.Drawing.Size(678, 764);
             this.dgvGames.TabIndex = 4;
             this.dgvGames.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvGames_CellDoubleClick);
+            this.dgvGames.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvGames_CellMouseDown);
             this.dgvGames.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.DgvGames_RowPostPaint);
             // 
             // tableLayoutPanel1
@@ -87,6 +92,21 @@ namespace XboxDownload
             this.linkLabel1.Text = "外服主机玩国服独占中文游戏的方法";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel1_LinkClicked);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiCopyURL});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(189, 34);
+            // 
+            // tsmiCopyURL
+            // 
+            this.tsmiCopyURL.Name = "tsmiCopyURL";
+            this.tsmiCopyURL.Size = new System.Drawing.Size(188, 30);
+            this.tsmiCopyURL.Text = "复制下载链接";
+            this.tsmiCopyURL.Click += new System.EventHandler(this.TsmiCopyURL_Click);
+            // 
             // Col_Name
             // 
             this.Col_Name.HeaderText = "名称 (双击选择)";
@@ -109,16 +129,16 @@ namespace XboxDownload
             this.Col_ProductId.MinimumWidth = 8;
             this.Col_ProductId.Name = "Col_ProductId";
             this.Col_ProductId.ReadOnly = true;
+            this.Col_ProductId.Visible = false;
             this.Col_ProductId.Width = 90;
             // 
             // Col_Url
             // 
-            this.Col_Url.HeaderText = "Url";
+            this.Col_Url.HeaderText = "下载链接 (右键复制)";
             this.Col_Url.MinimumWidth = 8;
             this.Col_Url.Name = "Col_Url";
             this.Col_Url.ReadOnly = true;
-            this.Col_Url.Visible = false;
-            this.Col_Url.Width = 150;
+            this.Col_Url.Width = 1380;
             // 
             // FormChinese
             // 
@@ -139,6 +159,7 @@ namespace XboxDownload
             ((System.ComponentModel.ISupportInitialize)(this.dgvGames)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -147,6 +168,8 @@ namespace XboxDownload
         private System.Windows.Forms.DataGridView dgvGames;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem tsmiCopyURL;
         private System.Windows.Forms.DataGridViewTextBoxColumn Col_Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn Col_Note;
         private System.Windows.Forms.DataGridViewTextBoxColumn Col_ProductId;
