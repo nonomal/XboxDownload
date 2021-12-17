@@ -2,7 +2,7 @@
 
 [OpenWrt 版本](./README_OpenWrt.md)
 
-本软件提速原理，把 Xbox 下载链接 assets1.xboxlive.com 跳转到 assets1.xboxlive.cn 上，锁定在国内服务器下载，解决使用国际域名下载速度过慢问题，并且能同时对微软商店、PSN、NS、EA Desktop & Origin、战网国际服 加速。
+本软件提速原理，把 Xbox 下载链接 assets1.xboxlive.com 跳转到 assets1.xboxlive.cn 上，锁定在国内服务器下载，解决使用国际域名下载速度过慢问题，并且能同时对微软商店、PSN、NS、EA Desktop & Origin、战网国际服、Epic 加速。
 
 下载链接
 ```
