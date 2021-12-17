@@ -1156,7 +1156,7 @@ namespace XboxDownload
                     case "origin-a.akamaihd.net":
                     case "blzddist1-a.akamaihd.net":
                     case "epicgames-download1.akamaized.net":
-                        sHosts = Regex.Replace(sHosts, @"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\s+(origin-a|blzddist1-a|epicgames-download1)\.akamaihd\.net\s+# Xbox下载助手\r\n", "");
+                        sHosts = Regex.Replace(sHosts, @"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\s+(origin-a|blzddist1-a|epicgames-download1)\.(akamaihd|akamaized)\.net\s+# Xbox下载助手\r\n", "");
                         sb.AppendLine(ip + " origin-a.akamaihd.net # Xbox下载助手");
                         sb.AppendLine(ip + " blzddist1-a.akamaihd.net # Xbox下载助手");
                         sb.AppendLine(ip + " epicgames-download1.akamaized.net # Xbox下载助手");
