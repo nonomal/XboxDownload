@@ -513,7 +513,7 @@ namespace XboxDownload
                         return;
                     }
                 }
-                
+
                 Properties.Settings.Default.DnsIP = dnsIP;
                 Properties.Settings.Default.ComIP = comIP;
                 Properties.Settings.Default.CnIP = cnIP;
@@ -640,9 +640,8 @@ namespace XboxDownload
                 pictureBox1.Image = Properties.Resources.Xbox2;
                 tbDnsIP.Enabled = tbComIP.Enabled = tbCnIP.Enabled = tbAppIP.Enabled = tbPSIP.Enabled = tbEAIP.Enabled = ckbEACDN.Enabled = ckbEAProtocol.Enabled = tbBattleIP.Enabled = ckbBattleCDN.Enabled = tbEpicIP.Enabled = ckbEpicCDN.Enabled = ckbRedirect.Enabled = ckbTruncation.Enabled = ckbLocalUpload.Enabled = tbLocalPath.Enabled = butBrowse.Enabled = cbListenIP.Enabled = ckbDnsService.Enabled = ckbHttpService.Enabled = ckbMicrosoftStore.Enabled = ckbEAStore.Enabled = ckbBattleStore.Enabled = ckbEpicStore.Enabled = cbLocalIP.Enabled = false;
                 butStart.Text = "停止监听";
-                Program.SystemSleep.PreventForCurrentThread(false);
-
                 WriteHost(true);
+                if (Properties.Settings.Default.MicrosoftStore) ThreadPool.QueueUserWorkItem(delegate { RestartService("DoSvc"); });
                 if (Properties.Settings.Default.DnsService)
                 {
                     linkTestDns.Enabled = true;
@@ -669,6 +668,7 @@ namespace XboxDownload
                     };
                     thread.Start();
                 }
+                Program.SystemSleep.PreventForCurrentThread(false);
             }
             butStart.Enabled = true;
         }
@@ -729,7 +729,6 @@ namespace XboxDownload
                             sb.AppendLine(Properties.Settings.Default.AppIP + " dl.delivery.mp.microsoft.com");
                             sb.AppendLine(Properties.Settings.Default.AppIP + " tlu.dl.delivery.mp.microsoft.com");
                         }
-                        ThreadPool.QueueUserWorkItem(delegate { RestartService("DoSvc"); });
                     }
                     if (Properties.Settings.Default.EAStore)
                     {
@@ -1057,19 +1056,32 @@ namespace XboxDownload
             tbEAIP.Focus();
         }
 
-        private void TsmUseIPEABattle_Click(object sender, EventArgs e)
+        private void TsmUseIPNS_Click(object sender, EventArgs e)
         {
-            if (bServiceFlag)
-            {
-                MessageBox.Show("请先停止监听后再设置。", "使用指定IP", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
             if (dgvIpList.SelectedRows.Count != 1) return;
             DataGridViewRow dgvr = dgvIpList.SelectedRows[0];
-            tbEAIP.Text = dgvr.Cells["Col_IP"].Value.ToString();
-            tbBattleIP.Text = dgvr.Cells["Col_IP"].Value.ToString();
-            tabControl1.SelectedIndex = 0;
-            tbEAIP.Focus();
+            string[] hostNames = new string[] { "epicgames-atum.hac.lp1.d4c.nintendo.net" };
+            foreach (string hostName in hostNames)
+            {
+                DataRow[] rows = dtHost.Select("HostName='" + hostName + "'");
+                if (rows.Length >= 1)
+                {
+                    rows[0]["Enable"] = true;
+                    rows[0]["IPv4"] = dgvr.Cells["Col_IP"].Value;
+                    rows[0]["Remark"] = "Nintendo Switch下载域名";
+                }
+                else
+                {
+                    DataRow dr = dtHost.NewRow();
+                    dr["Enable"] = true;
+                    dr["HostName"] = hostName;
+                    dr["IPv4"] = dgvr.Cells["Col_IP"].Value;
+                    dr["Remark"] = "Nintendo Switch下载域名";
+                    dtHost.Rows.Add(dr);
+                }
+            }
+            ButHostSave_Click(null, null);
+            tabControl1.SelectedIndex = 2;
         }
 
         private void TsmUseIPHosts_Click(object sender, EventArgs e)
@@ -1160,7 +1172,7 @@ namespace XboxDownload
                         sb.AppendLine(ip + " origin-a.akamaihd.net # Xbox下载助手");
                         sb.AppendLine(ip + " blzddist1-a.akamaihd.net # Xbox下载助手");
                         sb.AppendLine(ip + " epicgames-download1.akamaized.net # Xbox下载助手");
-                        msg = "系统Hosts文件写入成功，以下规则已写入系统Hosts文件\n\n" + sb.ToString() + "\nEA Desktop & Origin CDN服务器使用 Akamai 可以直接加速，不需要启动下载助手监听。Origin 的用户可以在“工具 -> EA Origin 切换CDN服务器”中切换使用 Akamai，EA Desktop 暂时不能切换，如果你的 EA Desktop 不是使用Akamai CDN服务器，此方法无效，请使用监听方式加速。\n\n暴雪战网只能用监听方式加速。";
+                        msg = "系统Hosts文件写入成功，以下规则已写入系统Hosts文件\n\n" + sb.ToString() + "\nEA Desktop & Origin CDN服务器使用 Akamai 可以直接加速，不需要启动下载助手监听。Origin 的用户可以在“工具 -> EA Origin 切换CDN服务器”中切换使用 Akamai，EA Desktop 暂时不能切换，如果你的 EA Desktop 不是使用Akamai CDN服务器，此方法无效，请使用监听方式加速。\n\n暴雪战网只能用监听方式加速。\n\nEpic 需要重启 Epic Games Launcher 才能生效。";
                         break;
                     default:
                         sHosts = Regex.Replace(sHosts, @"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\s+" + host + @"\s+# Xbox下载助手\r\n", "");
@@ -1279,12 +1291,14 @@ namespace XboxDownload
                         sb.AppendLine("address=/origin-a.akamaihd.net/" + ip);
                         sb.AppendLine("address=/blzddist1-a.akamaihd.net/" + ip);
                         sb.AppendLine("address=/epicgames-download1.akamaized.net/" + ip);
+                        sb.AppendLine("address=/atum.hac.lp1.d4c.nintendo.net/" + ip);
                     }
                     else
                     {
                         sb.AppendLine(ip + " origin-a.akamaihd.net");
                         sb.AppendLine(ip + " blzddist1-a.akamaihd.net");
                         sb.AppendLine(ip + " epicgames-download1.akamaized.net");
+                        sb.AppendLine(ip + " epicgames-atum.hac.lp1.d4c.nintendo.net");
                     }
                     break;
                 default:

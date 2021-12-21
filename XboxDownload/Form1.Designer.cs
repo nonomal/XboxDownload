@@ -44,6 +44,7 @@ namespace XboxDownload
             this.tsmProductManual = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmTeaching = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmTeaching1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmTeaching2 = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -226,6 +227,7 @@ namespace XboxDownload
             this.linkGameChinese = new System.Windows.Forms.LinkLabel();
             this.label41 = new System.Windows.Forms.Label();
             this.tbGameUrl = new System.Windows.Forms.TextBox();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.gpEACdn = new System.Windows.Forms.GroupBox();
             this.linkEaOriginRepair = new System.Windows.Forms.LinkLabel();
@@ -263,6 +265,7 @@ namespace XboxDownload
             this.tsmUseIPXboxApp = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmUseIPPS = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmUseIPEaBattleEpic = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmUseIPNS = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmUseIPHosts = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmExportRule = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmDNSmasp = new System.Windows.Forms.ToolStripMenuItem();
@@ -376,7 +379,8 @@ namespace XboxDownload
             // tsmTeaching
             // 
             this.tsmTeaching.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmTeaching1});
+            this.tsmTeaching1,
+            this.tsmTeaching2});
             this.tsmTeaching.Name = "tsmTeaching";
             this.tsmTeaching.Size = new System.Drawing.Size(182, 34);
             this.tsmTeaching.Text = "视频教程";
@@ -385,9 +389,17 @@ namespace XboxDownload
             // 
             this.tsmTeaching1.Name = "tsmTeaching1";
             this.tsmTeaching1.Size = new System.Drawing.Size(298, 34);
-            this.tsmTeaching1.Tag = "https://www.bilibili.com/video/BV1wP4y1G7zf";
-            this.tsmTeaching1.Text = "OpenWrt域名跳转加速";
+            this.tsmTeaching1.Tag = "https://www.bilibili.com/video/BV1834y16784";
+            this.tsmTeaching1.Text = "PC简易操作版";
             this.tsmTeaching1.Click += new System.EventHandler(this.TsmTeaching_Click);
+            // 
+            // tsmTeaching2
+            // 
+            this.tsmTeaching2.Name = "tsmTeaching2";
+            this.tsmTeaching2.Size = new System.Drawing.Size(298, 34);
+            this.tsmTeaching2.Tag = "https://www.bilibili.com/video/BV1wP4y1G7zf";
+            this.tsmTeaching2.Text = "OpenWrt域名跳转加速";
+            this.tsmTeaching2.Click += new System.EventHandler(this.TsmTeaching_Click);
             // 
             // tsmAbout
             // 
@@ -1239,7 +1251,7 @@ namespace XboxDownload
             "Xbox & 微软商店 (国内域名)",
             "Xbox & 微软商店 (国际域名)",
             "PlayStation 3/4/5 游戏下载",
-            "EA & 战网 & Epic (Akamai)"});
+            "EA & 战网 & Epic & NS (Akamai)"});
             this.cbImportIP.Location = new System.Drawing.Point(874, 6);
             this.cbImportIP.Name = "cbImportIP";
             this.cbImportIP.Size = new System.Drawing.Size(338, 26);
@@ -2338,6 +2350,12 @@ namespace XboxDownload
             this.tbGameUrl.TabIndex = 1;
             this.tbGameUrl.Enter += new System.EventHandler(this.Tb_Enter);
             // 
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(190, 100);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            // 
             // tabPage7
             // 
             this.tabPage7.Controls.Add(this.gpEACdn);
@@ -2683,6 +2701,7 @@ namespace XboxDownload
             this.tsmUseIPXboxApp,
             this.tsmUseIPPS,
             this.tsmUseIPEaBattleEpic,
+            this.tsmUseIPNS,
             this.tsmUseIPHosts});
             this.tsmUseIP.Name = "tsmUseIP";
             this.tsmUseIP.Size = new System.Drawing.Size(168, 30);
@@ -2722,6 +2741,13 @@ namespace XboxDownload
             this.tsmUseIPEaBattleEpic.Size = new System.Drawing.Size(380, 34);
             this.tsmUseIPEaBattleEpic.Text = "指定 EA、战网、Epic 下载域名 IP";
             this.tsmUseIPEaBattleEpic.Click += new System.EventHandler(this.TsmUseIPEaBattleEpic_Click);
+            // 
+            // tsmUseIPNS
+            // 
+            this.tsmUseIPNS.Name = "tsmUseIPNS";
+            this.tsmUseIPNS.Size = new System.Drawing.Size(380, 34);
+            this.tsmUseIPNS.Text = "指定 NS 下载域名 IP";
+            this.tsmUseIPNS.Click += new System.EventHandler(this.TsmUseIPNS_Click);
             // 
             // tsmUseIPHosts
             // 
@@ -2795,7 +2821,7 @@ namespace XboxDownload
             this.KeyPreview = true;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Xbox 下载助手 (支持Xbox、微软商店、PSN、EA Desktop & Origin、战网国际服、Epic 下载加速)";
+            this.Text = "Xbox下载助手";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -3015,6 +3041,7 @@ namespace XboxDownload
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.TextBox tbGameCategory;
         private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.LinkLabel linkAppxAdd;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.Button butAppxInstall;
@@ -3078,12 +3105,14 @@ namespace XboxDownload
         private System.Windows.Forms.Label labelBattle;
         private System.Windows.Forms.LinkLabel linkEaOriginRepair;
         private System.Windows.Forms.ToolStripMenuItem tsmTeaching;
-        private System.Windows.Forms.ToolStripMenuItem tsmTeaching1;
+        private System.Windows.Forms.ToolStripMenuItem tsmTeaching2;
         private System.Windows.Forms.Label label53;
         public System.Windows.Forms.TextBox tbEpicIP;
         private System.Windows.Forms.Label labelEpic;
         private System.Windows.Forms.CheckBox ckbEpicStore;
         private System.Windows.Forms.CheckBox ckbEpicCDN;
+        private System.Windows.Forms.ToolStripMenuItem tsmTeaching1;
+        private System.Windows.Forms.ToolStripMenuItem tsmUseIPNS;
     }
 }
 

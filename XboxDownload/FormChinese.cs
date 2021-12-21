@@ -50,7 +50,7 @@ namespace XboxDownload
                 new Games("真•三国无双７ 帝国", "国服简中", "bvg8190qslw6", "http://assets1.xboxlive.cn/4/878a830c-f90a-490a-8fd5-66141c2b0a78/2d456c8a-fc28-4873-a536-bacff51bba25/1.2.1.0.d9ff4e56-dc51-451c-8937-ff4efcbcb376/SM7EMPCN_1.2.1.0_x64__zph8pnx224h38"),
                 new Games("最终幻想15", "国服简中", "c45d79qvkztp", "http://assets1.xboxlive.cn/6/1de847b6-ea75-4b82-9409-0a7c8c8b2fd7/faa27552-be23-44e9-aec3-9e2c383dfef4/1.3.1.0.4e600e32-28f3-4097-9fae-01152ef2d92e/ffxv-China_1.3.1.0_x64__0ygzwnwk70gy4")
             };
-            //games.Sort((x, y) => string.Compare(x.Name, y.Name));
+            //games.Sort((x, y) => string.Compare(x.name, y.name));
 
             List<DataGridViewRow> list = new List<DataGridViewRow>();
             foreach (var game in games)
