@@ -34,16 +34,18 @@ namespace XboxDownload
                     {
                         if (dns.AddressFamily == AddressFamily.InterNetwork)
                         {
+                            string ip = dns.ToString();
+                            if (ip == Properties.Settings.Default.LocalIP) continue;
                             if (iPEndPoint == null)
                             {
                                 iPEndPoint = new IPEndPoint(dns, 53);
-                                if (dns.ToString().StartsWith(priorityIp))
+                                if (ip.StartsWith(priorityIp))
                                 {
                                     succeed = true;
                                     break;
                                 }
                             }
-                            else if (dns.ToString().StartsWith(priorityIp))
+                            else if (ip.StartsWith(priorityIp))
                             {
                                 iPEndPoint = new IPEndPoint(dns, 53);
                                 succeed = true;

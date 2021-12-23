@@ -31,10 +31,10 @@ namespace XboxDownload
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.tsmiMinimizeTray = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,6 +45,7 @@ namespace XboxDownload
             this.tsmTeaching = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmTeaching1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmTeaching2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmTeachingOpenWrt = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -227,7 +228,6 @@ namespace XboxDownload
             this.linkGameChinese = new System.Windows.Forms.LinkLabel();
             this.label41 = new System.Windows.Forms.Label();
             this.tbGameUrl = new System.Windows.Forms.TextBox();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.gpEACdn = new System.Windows.Forms.GroupBox();
             this.linkEaOriginRepair = new System.Windows.Forms.LinkLabel();
@@ -380,7 +380,8 @@ namespace XboxDownload
             // 
             this.tsmTeaching.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmTeaching1,
-            this.tsmTeaching2});
+            this.tsmTeaching2,
+            this.tsmTeachingOpenWrt});
             this.tsmTeaching.Name = "tsmTeaching";
             this.tsmTeaching.Size = new System.Drawing.Size(182, 34);
             this.tsmTeaching.Text = "视频教程";
@@ -397,9 +398,17 @@ namespace XboxDownload
             // 
             this.tsmTeaching2.Name = "tsmTeaching2";
             this.tsmTeaching2.Size = new System.Drawing.Size(298, 34);
-            this.tsmTeaching2.Tag = "https://www.bilibili.com/video/BV1wP4y1G7zf";
-            this.tsmTeaching2.Text = "OpenWrt域名跳转加速";
+            this.tsmTeaching2.Tag = "https://www.bilibili.com/video/BV1xM4y1c7j1";
+            this.tsmTeaching2.Text = "PC下载回传";
             this.tsmTeaching2.Click += new System.EventHandler(this.TsmTeaching_Click);
+            // 
+            // tsmTeachingOpenWrt
+            // 
+            this.tsmTeachingOpenWrt.Name = "tsmTeachingOpenWrt";
+            this.tsmTeachingOpenWrt.Size = new System.Drawing.Size(298, 34);
+            this.tsmTeachingOpenWrt.Tag = "https://www.bilibili.com/video/BV1wP4y1G7zf";
+            this.tsmTeachingOpenWrt.Text = "OpenWrt域名跳转加速";
+            this.tsmTeachingOpenWrt.Click += new System.EventHandler(this.TsmTeaching_Click);
             // 
             // tsmAbout
             // 
@@ -1134,9 +1143,9 @@ namespace XboxDownload
             // 
             // Col_TTL
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle1.Format = "N0";
-            this.Col_TTL.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Format = "N0";
+            this.Col_TTL.DefaultCellStyle = dataGridViewCellStyle5;
             this.Col_TTL.HeaderText = "TTL";
             this.Col_TTL.MinimumWidth = 8;
             this.Col_TTL.Name = "Col_TTL";
@@ -1144,9 +1153,9 @@ namespace XboxDownload
             // 
             // Col_RoundtripTime
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "N0";
-            this.Col_RoundtripTime.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.Format = "N0";
+            this.Col_RoundtripTime.DefaultCellStyle = dataGridViewCellStyle6;
             this.Col_RoundtripTime.HeaderText = "响应时间(ms)";
             this.Col_RoundtripTime.MinimumWidth = 8;
             this.Col_RoundtripTime.Name = "Col_RoundtripTime";
@@ -1154,9 +1163,9 @@ namespace XboxDownload
             // 
             // Col_Speed
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "N2";
-            this.Col_Speed.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle7.Format = "N2";
+            this.Col_Speed.DefaultCellStyle = dataGridViewCellStyle7;
             this.Col_Speed.HeaderText = "下载速度(MB/s)";
             this.Col_Speed.MinimumWidth = 8;
             this.Col_Speed.Name = "Col_Speed";
@@ -1860,8 +1869,8 @@ namespace XboxDownload
             // 
             // Col_Size
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Col_Size.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Col_Size.DefaultCellStyle = dataGridViewCellStyle8;
             this.Col_Size.HeaderText = "容量";
             this.Col_Size.MinimumWidth = 8;
             this.Col_Size.Name = "Col_Size";
@@ -2349,12 +2358,6 @@ namespace XboxDownload
             this.tbGameUrl.Size = new System.Drawing.Size(990, 28);
             this.tbGameUrl.TabIndex = 1;
             this.tbGameUrl.Enter += new System.EventHandler(this.Tb_Enter);
-            // 
-            // imageList1
-            // 
-            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
-            this.imageList1.ImageSize = new System.Drawing.Size(190, 100);
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // tabPage7
             // 
@@ -3041,7 +3044,6 @@ namespace XboxDownload
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.TextBox tbGameCategory;
         private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.LinkLabel linkAppxAdd;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.Button butAppxInstall;
@@ -3105,7 +3107,7 @@ namespace XboxDownload
         private System.Windows.Forms.Label labelBattle;
         private System.Windows.Forms.LinkLabel linkEaOriginRepair;
         private System.Windows.Forms.ToolStripMenuItem tsmTeaching;
-        private System.Windows.Forms.ToolStripMenuItem tsmTeaching2;
+        private System.Windows.Forms.ToolStripMenuItem tsmTeachingOpenWrt;
         private System.Windows.Forms.Label label53;
         public System.Windows.Forms.TextBox tbEpicIP;
         private System.Windows.Forms.Label labelEpic;
@@ -3113,6 +3115,7 @@ namespace XboxDownload
         private System.Windows.Forms.CheckBox ckbEpicCDN;
         private System.Windows.Forms.ToolStripMenuItem tsmTeaching1;
         private System.Windows.Forms.ToolStripMenuItem tsmUseIPNS;
+        private System.Windows.Forms.ToolStripMenuItem tsmTeaching2;
     }
 }
 

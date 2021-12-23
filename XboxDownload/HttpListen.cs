@@ -215,7 +215,6 @@ namespace XboxDownload
                         {
                             bool bFileNotFound = true;
                             string _url = "http://" + _hosts + _filePath;
-                            //if (_domainName == "dl.delivery.mp.microsoft.com" || _extension == ".phf" || ((_domainName == "download.xbox.com" || _domainName == "download.xbox.com.edgesuite.net" || _domainName == "xbox-ecn102.vo.msecnd.net") && (_extension == ".jpg" || _extension == ".png"))) //1.代理Xbox应用下载索引 2.代理Xbox360卖场图片
                             if (_hosts == "dl.delivery.mp.microsoft.com" || _extension == ".phf" || _extension == ".json") //代理 Xbox|PS 下载索引
                             {
                                 string ip = ClassWeb.HostToIP(_hosts, "114.114.114.114");

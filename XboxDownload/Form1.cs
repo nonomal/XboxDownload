@@ -368,6 +368,7 @@ namespace XboxDownload
                 httpListen.Close();
                 httpsListen.Close();
                 Program.SystemSleep.RestoreForCurrentThread();
+                if (Properties.Settings.Default.MicrosoftStore) ThreadPool.QueueUserWorkItem(delegate { RestartService("DoSvc"); });
             }
             else
             {
@@ -1060,7 +1061,7 @@ namespace XboxDownload
         {
             if (dgvIpList.SelectedRows.Count != 1) return;
             DataGridViewRow dgvr = dgvIpList.SelectedRows[0];
-            string[] hostNames = new string[] { "epicgames-atum.hac.lp1.d4c.nintendo.net" };
+            string[] hostNames = new string[] { "atum.hac.lp1.d4c.nintendo.net" };
             foreach (string hostName in hostNames)
             {
                 DataRow[] rows = dtHost.Select("HostName='" + hostName + "'");
@@ -1298,7 +1299,7 @@ namespace XboxDownload
                         sb.AppendLine(ip + " origin-a.akamaihd.net");
                         sb.AppendLine(ip + " blzddist1-a.akamaihd.net");
                         sb.AppendLine(ip + " epicgames-download1.akamaized.net");
-                        sb.AppendLine(ip + " epicgames-atum.hac.lp1.d4c.nintendo.net");
+                        sb.AppendLine(ip + " atum.hac.lp1.d4c.nintendo.net");
                     }
                     break;
                 default:
