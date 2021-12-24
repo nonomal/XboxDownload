@@ -1169,10 +1169,12 @@ namespace XboxDownload
                     case "origin-a.akamaihd.net":
                     case "blzddist1-a.akamaihd.net":
                     case "epicgames-download1.akamaized.net":
+                    case "atum.hac.lp1.d4c.nintendo.net":
                         sHosts = Regex.Replace(sHosts, @"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\s+(origin-a|blzddist1-a|epicgames-download1)\.(akamaihd|akamaized)\.net\s+# Xbox下载助手\r\n", "");
                         sb.AppendLine(ip + " origin-a.akamaihd.net # Xbox下载助手");
                         sb.AppendLine(ip + " blzddist1-a.akamaihd.net # Xbox下载助手");
                         sb.AppendLine(ip + " epicgames-download1.akamaized.net # Xbox下载助手");
+                        sb.AppendLine(ip + " atum.hac.lp1.d4c.nintendo.net # Xbox下载助手");
                         msg = "系统Hosts文件写入成功，以下规则已写入系统Hosts文件\n\n" + sb.ToString() + "\nEA Desktop & Origin CDN服务器使用 Akamai 可以直接加速，不需要启动下载助手监听。Origin 的用户可以在“工具 -> EA Origin 切换CDN服务器”中切换使用 Akamai，EA Desktop 暂时不能切换，如果你的 EA Desktop 不是使用Akamai CDN服务器，此方法无效，请使用监听方式加速。\n\n暴雪战网只能用监听方式加速。\n\nEpic 需要重启 Epic Games Launcher 才能生效。";
                         break;
                     default:
